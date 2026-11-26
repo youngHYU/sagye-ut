@@ -35,23 +35,12 @@ if(!PR){
   const go=()=>{const r='p-'+Math.random().toString(36).slice(2,8);location.href=location.pathname+'?room='+r};
   const b=document.createElement('button');b.className='btn cm-start';b.textContent='연습하기';b.title='실제 UT 데이터와 상관없는 연습창을 열어요';b.onclick=go;
   const sw=document.getElementById('swop');sw.parentNode.insertBefore(b,sw);
-  const lb=document.createElement('button');lb.className='btn';lb.textContent='연습 기록';lb.title='팀원들이 연습창에 들어오고 나간 기록';lb.onclick=showLog;sw.parentNode.insertBefore(lb,sw);
   const lg=document.getElementById('login');
   if(lg){const p=document.createElement('div');p.style.cssText='margin:0 0 16px;padding:12px 14px;border-radius:12px;background:#f4eefc;color:#4b2580;font-size:14px';
     p.innerHTML='처음이면 먼저 <b>연습하기</b>로 흐름을 직접 해 보세요. 연습은 실제 UT 데이터와 섞이지 않고, 끝내면 연습 내용은 사라져요. <button class="btn cm-start" style="margin-left:6px;min-height:34px;padding:4px 12px">연습하기</button>';
     p.querySelector('button').onclick=go;lg.insertBefore(p,lg.querySelector('label'))}
 }
 
-async function showLog(){
-  let ov=document.getElementById('cm-log');if(!ov){ov=document.createElement('div');ov.id='cm-log';document.body.appendChild(ov);ov.onclick=e=>{if(e.target===ov||e.target.dataset.close)ov.remove()}}
-  ov.innerHTML='<div class="cm-lg"><p>불러오는 중…</p></div>';
-  const {data,error}=await sb.from('ut_practice_log').select('*').order('started_at',{ascending:false}).limit(200);
-  const f=t=>{if(!t)return '-';const d=new Date(t);return (d.getMonth()+1)+'/'+d.getDate()+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')};
-  const st=x=>{if(x.finished)return '<b style="color:#1f7a4d">끝까지 완료</b>';const last=new Date(x.last_at).getTime();if(x.ended_at&&new Date(x.ended_at).getTime()>=last)return '<span style="color:#a33">중간에 나감</span>';if(Date.now()-last<150000)return '<b style="color:#2350a8">연습 중</b>';return '<span style="color:#a33">중간에 나감</span>'};
-  const rows=(data||[]).map(x=>`<tr><td>${esc(x.op||'(이름 입력 전)')}${x.role?' · '+esc(x.role):''}</td><td>${f(x.started_at)}</td><td>${f(x.ended_at&&!x.finished?x.ended_at:x.finished?x.ended_at:x.last_at)}</td><td>${x.max_step}/${CM_TOTAL}</td><td>${x.part_joined?'✓':'-'}</td><td>${st(x)}</td></tr>`).join('');
-  ov.innerHTML=`<div class="cm-lg"><div style="display:flex;align-items:center;margin-bottom:8px"><h3 style="margin:0;font-size:18px">연습 기록</h3><span style="margin-left:8px;font-size:12px;color:#7a8190">연습 내용은 지워지고, 누가 언제 들어오고 나갔는지만 남아요</span><button class="btn" data-close="1" style="margin-left:auto">닫기</button></div>${error?'<p>불러오지 못했어요. 다시 열어 주세요.</p>':rows?`<table><thead><tr><th>이름 · 역할</th><th>들어옴</th><th>나감 · 마지막</th><th>진행</th><th>참가자 폰</th><th>상태</th></tr></thead><tbody>${rows}</tbody></table>`:'<p>아직 연습한 사람이 없어요.</p>'}</div>`;
-}
-const CM_TOTAL=16;
 
 /* ---- 연습창 ---- */
 if(PR){
