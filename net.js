@@ -59,9 +59,10 @@ async function joinRound(){
   const n=await ensureRoom();
   const p=person({name:t.name.trim(),part:t.part,joined:true,round:n});
   const d=await retry(()=>sb.from('ut_people').insert({room:ROOM,round_n:n,data:pdata(p)}).select().single(),'join');
-  p.id=d.id;S.mine=p;S.cur=n;LS.set(MEK,{id:p.id,round:n,data:pdata(p)});
+  p.id=d.id;S.mine=p;S.cur=n;LS.set(MEK,{id:p.id,round:n,data:pdata(p)});setMeUrl(p.id);
   await loadRound(n);S.joining=false;renderPhone();
 }
+function setMeUrl(id){try{const u=new URL(location.href);if(id)u.searchParams.set('me',id);else u.searchParams.delete('me');history.replaceState(null,'',u)}catch(e){}}
 async function ensureRoom(){const {data,error}=await sb.from('ut_meta').select('cur').eq('room',ROOM).maybeSingle();if(error)throw error;if(data)return data.cur;await sb.from('ut_meta').upsert({room:ROOM,cur:1},{onConflict:'room',ignoreDuplicates:true});await sb.from('ut_rounds').upsert({room:ROOM,n:1,step:0,step_at:Math.round(now())},{onConflict:'room,n',ignoreDuplicates:true});return 1}
 async function loadRound(n){const {data}=await sb.from('ut_rounds').select('*').eq('room',ROOM).eq('n',n).single();if(data){const old=S.rounds[n];S.rounds[n]=rowRound(data,old);}}
 
@@ -70,14 +71,17 @@ async function bootPart(){
   await syncClock();
   const m=await retry0(async()=>{try{return {data:await ensureRoom()}}catch(e){return {error:e}}},'meta');
   S.cur=m;ensureRound(S.cur);
-  const me=LS.get(MEK);
+  // 새로고침해도 이어지도록: 주소창(me=)과 기기 저장소 둘 다에서 찾음
+  const urlMe=((new URLSearchParams(location.search).get('me')||'').trim().match(/^[0-9a-f-]{36}$/i)||[''])[0];
+  let me=LS.get(MEK);const fromUrl=!!urlMe&&!(me&&me.id===urlMe);
+  if(fromUrl)me={id:urlMe};
   if(me&&me.id){
-    const {data:row}=await sb.from('ut_people').select('*').eq('id',me.id).eq('room',ROOM).maybeSingle();
-    if(row&&row.round_n===S.cur){
+    const {data:row}=await retry0(async()=>{const r=await sb.from('ut_people').select('*').eq('id',me.id).eq('room',ROOM).maybeSingle();return r.error?{error:r.error}:{data:r}},'me');
+    if(row&&(row.round_n===S.cur||urlMe===row.id)){setMeUrl(row.id);
       const p=rowPerson(row);
       if(me.data&&(me.data.v||0)>((row.data||{}).v||0)){Object.assign(p,me.data);p.draft=JSON.parse(JSON.stringify(p.ans||{}));S.mine=p;flushPerson()}else S.mine=p;
       S.mine.round=row.round_n;
-    }else LS.del(MEK);
+    }else{LS.del(MEK);if(urlMe)setMeUrl(null)}
   }
   if(!S.mine)S.tmp=person();
   await loadRound(S.mine?S.mine.round:S.cur);
