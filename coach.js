@@ -31,7 +31,7 @@ document.head.insertAdjacentHTML('beforeend','<style>'+css+'</style>');
 
 /* ---- 실제 운영 화면: 연습 버튼 ---- */
 if(!PR){
-  try{sb.rpc('ut_cleanup')}catch(e){}
+  try{sb.rpc('ut_cleanup').then(()=>{},()=>{})}catch(e){}
   const go=()=>{const r='p-'+Math.random().toString(36).slice(2,8);location.href=location.pathname+'?room='+r};
   const b=document.createElement('button');b.className='btn cm-start';b.textContent='연습하기';b.title='실제 UT 데이터와 상관없는 연습창을 열어요';b.onclick=go;
   const sw=document.getElementById('swop');sw.parentNode.insertBefore(b,sw);
@@ -61,7 +61,7 @@ if(PR){
   const drop=()=>{try{fetch(`${UT_CONFIG.url}/rest/v1/rpc/ut_drop_room`,{method:'POST',keepalive:true,headers:{apikey:UT_CONFIG.key,Authorization:`Bearer ${UT_CONFIG.key}`,'Content-Type':'application/json'},body:JSON.stringify({r:ROOM})})}catch(e){}};
   let leaving=false;
   // 연습 기록(누가 · 언제 · 어디까지) — 연습 데이터와 따로 남음
-  const plog=o=>{try{return sb.rpc('ut_plog',Object.assign({r:ROOM,o:S.op||null,ro:S.role||null,s:typeof i==='number'?i:0,j:!!(S.ready&&joined().length)},o||{}))}catch(e){}};
+  const plog=o=>{try{sb.rpc('ut_plog',Object.assign({r:ROOM,o:S.op||null,ro:S.role||null,s:typeof i==='number'?i:0,j:!!(S.ready&&joined().length)},o||{})).then(()=>{},()=>{})}catch(e){}};
   const plogKeep=o=>{try{fetch(`${UT_CONFIG.url}/rest/v1/rpc/ut_plog`,{method:'POST',keepalive:true,headers:{apikey:UT_CONFIG.key,Authorization:`Bearer ${UT_CONFIG.key}`,'Content-Type':'application/json'},body:JSON.stringify(Object.assign({r:ROOM,o:S.op||null,ro:S.role||null,s:typeof i==='number'?i:0,j:!!(S.ready&&joined().length)},o||{}))})}catch(e){}};
   const exit=fin=>{leaving=true;plogKeep({e:true,fin:fin===true});drop();restore();setTimeout(()=>{location.href=location.pathname},300)};
   addEventListener('pagehide',()=>{if(!leaving){plogKeep({e:true});drop();restore()}});
