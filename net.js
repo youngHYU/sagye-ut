@@ -7,7 +7,7 @@ const setNet=ok=>{netOk=ok;const el=netEl();if(el){el.style.display=ok?'none':''
 
 /* server clock */
 async function syncClock(){
-  try{let best=null;for(let i=0;i<3;i++){const t0=Date.now();const {data,error}=await sb.rpc('ut_now');const t1=Date.now();if(error)throw error;const rtt=t1-t0;if(!best||rtt<best.rtt)best={rtt,off:Number(data)-(t0+rtt/2)}}OFF=best.off}catch(e){}
+  try{let best=null;for(let i=0;i<3;i++){const t0=Date.now();const {data,error}=await sb.rpc('ut_now');const t1=Date.now();if(error)throw error;const rtt=t1-t0;if(!best||rtt<best.rtt)best={rtt,off:Number(data)-(t0+rtt/2)}}OFF=Math.round(best.off)}catch(e){}
 }
 
 /* row -> state */
@@ -23,14 +23,14 @@ const dropAsk=id=>{for(const r of Object.values(S.rounds))r.asks=r.asks.filter(a
 /* ---------- writes ---------- */
 let PEND=0;const retry=async(fn,label)=>{PEND++;try{return await retry0(fn,label)}finally{PEND--}};
 const retry0=async(fn,label)=>{for(let i=0;;i++){try{const {error,data}=await fn();if(error)throw error;setNet(true);return data}catch(e){setNet(false);console.warn('[ut] retry',label,e&&e.message);await new Promise(r=>setTimeout(r,Math.min(8000,600*2**i)))}}};
-const saveRound=r=>retry(()=>sb.from('ut_rounds').update({step:r.step,step_at:r.stepAt,m_acc:Math.round(r.mAcc||0),m_run:r.mRun==null?null:Math.round(r.mRun),f_acc:Math.round(r.fAcc||0),f_run:r.fRun==null?null:Math.round(r.fRun),updated_at:new Date().toISOString()}).eq('n',r.n),'round');
+const saveRound=r=>retry(()=>sb.from('ut_rounds').update({step:r.step,step_at:Math.round(r.stepAt),m_acc:Math.round(r.mAcc||0),m_run:r.mRun==null?null:Math.round(r.mRun),f_acc:Math.round(r.fAcc||0),f_run:r.fRun==null?null:Math.round(r.fRun),updated_at:new Date().toISOString()}).eq('n',r.n),'round');
 const dbNote=(n,key,op,txt,ed)=>retry(()=>sb.from('ut_notes').upsert({round_n:n,key,op,txt,ed,updated_at:new Date().toISOString()}),'note');
 const dbNoteDel=(n,key,op)=>retry(()=>sb.from('ut_notes').delete().match({round_n:n,key,op}),'notedel');
 const dbAsk=async(n,key,by,txt)=>{const d=await retry(()=>sb.from('ut_asks').insert({round_n:n,key,by_op:by,txt}).select().single(),'ask');putAsk(d);renderOp()};
 const dbAskUpd=a=>retry(()=>sb.from('ut_asks').update({txt:a.txt,ed:!!a.ed,ans:a.ans,updated_at:new Date().toISOString()}).eq('id',a.id),'askupd');
 const dbAskDel=id=>retry(()=>sb.from('ut_asks').delete().eq('id',id),'askdel');
 const dbOp=(name,role)=>retry(()=>sb.from('ut_ops').upsert({name,role,updated_at:new Date().toISOString()}),'op');
-const dbNewRound=async n=>{await retry(()=>sb.from('ut_rounds').upsert({n,step:0,step_at:now()}),'newround');await retry(()=>sb.from('ut_meta').update({cur:n}).eq('id',1),'meta')};
+const dbNewRound=async n=>{await retry(()=>sb.from('ut_rounds').upsert({n,step:0,step_at:Math.round(now())}),'newround');await retry(()=>sb.from('ut_meta').update({cur:n}).eq('id',1),'meta')};
 
 /* participant: single-writer, ordered, debounced saves with local backup */
 const pdata=p=>({name:p.name,part:p.part,ans:p.ans,staps:p.staps,taps:p.taps,manual:p.manual,pstep:p.pstep,tab:p.tab,v:p.v||0});
