@@ -23,7 +23,10 @@ const css=`#cm-hole{position:fixed;z-index:9000;border-radius:10px;box-shadow:0 
 #cm-bar button{border:0;border-radius:999px;padding:6px 12px;font:700 13px system-ui;cursor:pointer;background:#fff;color:#7a3cc2}
 #cm-bar button.g{background:rgba(255,255,255,.2);color:#fff}
 .cm-start{border:1px solid #7a3cc2!important;color:#7a3cc2!important;background:#fff!important;font-weight:700}
-.cm-start:hover{background:#f4eefc!important}`;
+.cm-start:hover{background:#f4eefc!important}
+#cm-log{position:fixed;inset:0;z-index:9500;background:rgba(10,16,28,.45);display:flex;align-items:flex-start;justify-content:center;padding:60px 12px}
+#cm-log .cm-lg{background:#fff;border-radius:14px;padding:16px;width:min(820px,100%);max-height:calc(100vh - 120px);overflow:auto;font:14px/1.5 system-ui,sans-serif;color:#18202e}
+#cm-log table{width:100%;border-collapse:collapse}#cm-log th,#cm-log td{text-align:left;padding:7px 8px;border-bottom:1px solid #eceff3;white-space:nowrap}#cm-log th{font-size:12px;color:#7a8190;font-weight:700}`;
 document.head.insertAdjacentHTML('beforeend','<style>'+css+'</style>');
 
 /* ---- 실제 운영 화면: 연습 버튼 ---- */
@@ -32,11 +35,23 @@ if(!PR){
   const go=()=>{const r='p-'+Math.random().toString(36).slice(2,8);location.href=location.pathname+'?room='+r};
   const b=document.createElement('button');b.className='btn cm-start';b.textContent='연습하기';b.title='실제 UT 데이터와 상관없는 연습창을 열어요';b.onclick=go;
   const sw=document.getElementById('swop');sw.parentNode.insertBefore(b,sw);
+  const lb=document.createElement('button');lb.className='btn';lb.textContent='연습 기록';lb.title='팀원들이 연습창에 들어오고 나간 기록';lb.onclick=showLog;sw.parentNode.insertBefore(lb,sw);
   const lg=document.getElementById('login');
   if(lg){const p=document.createElement('div');p.style.cssText='margin:0 0 16px;padding:12px 14px;border-radius:12px;background:#f4eefc;color:#4b2580;font-size:14px';
-    p.innerHTML='처음이면 먼저 <b>연습하기</b>로 흐름을 직접 해 보세요. 연습은 실제 UT 데이터와 섞이지 않고, 끝내면 연습 기록은 사라져요. <button class="btn cm-start" style="margin-left:6px;min-height:34px;padding:4px 12px">연습하기</button>';
+    p.innerHTML='처음이면 먼저 <b>연습하기</b>로 흐름을 직접 해 보세요. 연습은 실제 UT 데이터와 섞이지 않고, 끝내면 연습 내용은 사라져요. <button class="btn cm-start" style="margin-left:6px;min-height:34px;padding:4px 12px">연습하기</button>';
     p.querySelector('button').onclick=go;lg.insertBefore(p,lg.querySelector('label'))}
 }
+
+async function showLog(){
+  let ov=document.getElementById('cm-log');if(!ov){ov=document.createElement('div');ov.id='cm-log';document.body.appendChild(ov);ov.onclick=e=>{if(e.target===ov||e.target.dataset.close)ov.remove()}}
+  ov.innerHTML='<div class="cm-lg"><p>불러오는 중…</p></div>';
+  const {data,error}=await sb.from('ut_practice_log').select('*').order('started_at',{ascending:false}).limit(200);
+  const f=t=>{if(!t)return '-';const d=new Date(t);return (d.getMonth()+1)+'/'+d.getDate()+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')};
+  const st=x=>{if(x.finished)return '<b style="color:#1f7a4d">끝까지 완료</b>';const last=new Date(x.last_at).getTime();if(x.ended_at&&new Date(x.ended_at).getTime()>=last)return '<span style="color:#a33">중간에 나감</span>';if(Date.now()-last<150000)return '<b style="color:#2350a8">연습 중</b>';return '<span style="color:#a33">중간에 나감</span>'};
+  const rows=(data||[]).map(x=>`<tr><td>${esc(x.op||'(이름 입력 전)')}${x.role?' · '+esc(x.role):''}</td><td>${f(x.started_at)}</td><td>${f(x.ended_at&&!x.finished?x.ended_at:x.finished?x.ended_at:x.last_at)}</td><td>${x.max_step}/${CM_TOTAL}</td><td>${x.part_joined?'✓':'-'}</td><td>${st(x)}</td></tr>`).join('');
+  ov.innerHTML=`<div class="cm-lg"><div style="display:flex;align-items:center;margin-bottom:8px"><h3 style="margin:0;font-size:18px">연습 기록</h3><span style="margin-left:8px;font-size:12px;color:#7a8190">연습 내용은 지워지고, 누가 언제 들어오고 나갔는지만 남아요</span><button class="btn" data-close="1" style="margin-left:auto">닫기</button></div>${error?'<p>불러오지 못했어요. 다시 열어 주세요.</p>':rows?`<table><thead><tr><th>이름 · 역할</th><th>들어옴</th><th>나감 · 마지막</th><th>진행</th><th>참가자 폰</th><th>상태</th></tr></thead><tbody>${rows}</tbody></table>`:'<p>아직 연습한 사람이 없어요.</p>'}</div>`;
+}
+const CM_TOTAL=16;
 
 /* ---- 연습창 ---- */
 if(PR){
@@ -45,15 +60,19 @@ if(PR){
   const restore=()=>{try{const v=sessionStorage.getItem('cm_prev');if(v!==null){if(v==='__none__')localStorage.removeItem('ut_op');else localStorage.setItem('ut_op',v)}sessionStorage.removeItem('cm_prev')}catch(e){}};
   const drop=()=>{try{fetch(`${UT_CONFIG.url}/rest/v1/rpc/ut_drop_room`,{method:'POST',keepalive:true,headers:{apikey:UT_CONFIG.key,Authorization:`Bearer ${UT_CONFIG.key}`,'Content-Type':'application/json'},body:JSON.stringify({r:ROOM})})}catch(e){}};
   let leaving=false;
-  const exit=()=>{leaving=true;drop();restore();setTimeout(()=>{location.href=location.pathname},250)};
-  addEventListener('pagehide',()=>{if(!leaving){drop();restore()}});
+  // 연습 기록(누가 · 언제 · 어디까지) — 연습 데이터와 따로 남음
+  const plog=o=>{try{return sb.rpc('ut_plog',Object.assign({r:ROOM,o:S.op||null,ro:S.role||null,s:typeof i==='number'?i:0,j:!!(S.ready&&joined().length)},o||{}))}catch(e){}};
+  const plogKeep=o=>{try{fetch(`${UT_CONFIG.url}/rest/v1/rpc/ut_plog`,{method:'POST',keepalive:true,headers:{apikey:UT_CONFIG.key,Authorization:`Bearer ${UT_CONFIG.key}`,'Content-Type':'application/json'},body:JSON.stringify(Object.assign({r:ROOM,o:S.op||null,ro:S.role||null,s:typeof i==='number'?i:0,j:!!(S.ready&&joined().length)},o||{}))})}catch(e){}};
+  const exit=fin=>{leaving=true;plogKeep({e:true,fin:fin===true});drop();restore();setTimeout(()=>{location.href=location.pathname},300)};
+  addEventListener('pagehide',()=>{if(!leaving){plogKeep({e:true});drop();restore()}});
+  let plSig='';setInterval(()=>{if(S.ready)plog()},60000);
   // net.js 의 연습방 배지는 코치 바로 대체
   setTimeout(()=>{[...document.body.children].forEach(e=>{if(e.textContent&&e.textContent.startsWith('연습방 ·')&&e.id!=='cm-bar')e.remove()})},50);
 
   const bar=document.createElement('div');bar.id='cm-bar';
   bar.innerHTML='<span>연습 중 · 실제 UT 데이터와 분리</span><button class="g" id="cm-again">설명 다시 보기</button><button id="cm-exit">연습 끝내기</button>';
   document.body.appendChild(bar);
-  bar.querySelector('#cm-exit').onclick=exit;
+  bar.querySelector('#cm-exit').onclick=()=>exit(false);
 
   const hole=document.createElement('div');hole.id='cm-hole';
   const tip=document.createElement('div');tip.id='cm-tip';tip.setAttribute('role','dialog');
@@ -72,7 +91,7 @@ if(PR){
   const firstAns=()=>[...document.querySelectorAll('#opbody td.ans')].find(t=>!t.querySelector('.empty'));
 
   const STEPS_C=[
-   {k:'시작',t:'연습창에 들어왔어요',p:'여기서는 실제처럼 마음껏 눌러도 돼요. 실제 UT 데이터와 완전히 분리돼 있고, <b>연습 끝내기</b>를 누르면 연습 기록은 모두 사라져요.<br>노트북은 운영진, 폰은 참가자 역할이에요.'},
+   {k:'시작',t:'연습창에 들어왔어요',p:'여기서는 실제처럼 마음껏 눌러도 돼요. 실제 UT 데이터와 완전히 분리돼 있고, <b>연습 끝내기</b>를 누르면 연습 내용은 모두 사라져요.<br>노트북은 운영진, 폰은 참가자 역할이에요.'},
    {k:'운영진 입장',t:'먼저 운영진으로 입장해요',el:()=>document.getElementById('login'),do:'이름을 적고 역할은 <b>진행</b>을 고른 뒤 입장하기',done:()=>!!S.op&&S.role==='진행',hint:()=>S.op&&S.role!=='진행'?'연습에서는 단계를 직접 넘겨 봐야 해서 <b>진행</b>으로 들어와야 해요. 위쪽 운영진 바꾸기로 다시 입장해 주세요.':''},
    {k:'참가자 입장',t:'폰으로 참가자가 되어 들어와요',el:()=>document.querySelector('.stat'),qr:true,do:'폰 카메라로 QR을 찍어 이름 · 파트를 넣고 입장하기',done:()=>joined().length>0,skip:'폰이 없으면 이 노트북 새 탭으로',skipAct:()=>window.open(partUrl,'_blank')},
    {k:'참가자 현황',t:'참가자가 들어오면 여기에 떠요',el:()=>document.querySelector('.stat'),p:'이름 옆에 지금 어느 단계에 있는지, 답을 몇 개 했는지가 보여요. 빨간색이면 진행 단계와 다른 곳에 있다는 뜻이에요.'},
@@ -88,7 +107,7 @@ if(PR){
    {k:'요약',t:'선택형 답은 요약에서 한눈에',el:()=>document.querySelector('.otab[data-tab="sum"]'),do:'<b>요약</b> 탭 누르기',done:()=>S.tab==='sum'},
    {k:'정리',t:'UT가 끝나면 노션용 복사',el:()=>{if(S.tab!=='res')return document.querySelector('.otab[data-tab="res"]');return document.getElementById('copy')},p:'회차 결과표가 표로 복사돼서 회의 문서에 그대로 붙여 넣으면 돼요.',do:'<b>결과표</b> 탭에서 <b>노션용 복사</b> 누르기',done:()=>!!F.copy},
    {k:'새 회차',t:'회차가 끝나면 새 회차',el:()=>document.getElementById('newr'),p:'진행자만 보이는 버튼이에요. 실수 방지로 두 번 눌러야 시작되고, 이전 회차 결과는 그대로 남아요.',do:'<b>새 회차 시작</b>을 두 번 눌러 2회차 만들기 (연습이라 괜찮아요)',done:()=>{if(cur0===null)cur0=S.cur;return S.cur>cur0},after:'참가자 폰도 새 회차 처음 화면으로 돌아가요'},
-   {k:'끝',t:'연습 끝!',p:'이제 실제 UT에서도 똑같이 하면 돼요. <b>연습 끝내기</b>를 누르면 연습 기록이 지워지고 실제 운영 화면으로 돌아가요.<br>참가자 폰도 실제 UT 링크(QR)로 다시 들어오면 돼요.',end:true}
+   {k:'끝',t:'연습 끝!',p:'이제 실제 UT에서도 똑같이 하면 돼요. <b>연습 끝내기</b>를 누르면 연습 내용이 지워지고 실제 운영 화면으로 돌아가요.<br>참가자 폰도 실제 UT 링크(QR)로 다시 들어오면 돼요.',end:true}
   ];
   let i=0;try{i=Number(sessionStorage.getItem('cm_i@'+ROOM))||0}catch(e){}
   let hidden=false,lastEl=null;
@@ -115,13 +134,14 @@ if(PR){
       if(s.qr&&window.QRCode){try{new QRCode(document.getElementById('cm-qr'),{text:partUrl,width:240,height:240,correctLevel:QRCode.CorrectLevel.M})}catch(e){}}
       const b=id=>tip.querySelector('#'+id);
       b('cm-next')&&(b('cm-next').onclick=()=>setI(i+1));b('cm-prev')&&(b('cm-prev').onclick=()=>setI(i-1));
-      b('cm-hide').onclick=()=>{hidden=true;draw()};b('cm-end')&&(b('cm-end').onclick=exit);b('cm-skip')&&(b('cm-skip').onclick=s.skipAct)}
+      b('cm-hide').onclick=()=>{hidden=true;draw()};b('cm-end')&&(b('cm-end').onclick=()=>exit(true));b('cm-skip')&&(b('cm-skip').onclick=s.skipAct)}
     const el=s.el?s.el():null;
     if(el&&el!==lastEl){lastEl=el;try{el.scrollIntoView({block:'nearest',inline:'nearest'})}catch(e){}}
     place(el);
   }
   const tick=()=>{if(!S.ready){setTimeout(tick,300);return}
     const s=STEPS_C[i];if(s.k==='운영진 입장'&&S.op&&S.role==='진행'&&i===1){/* auto next after login */setI(2)}
+    const sig=[S.op,S.role,i,joined().length>0].join('|');if(sig!==plSig){plSig=sig;plog()}
     draw(false)};
   setInterval(tick,400);addEventListener('resize',()=>draw(false));
 }
