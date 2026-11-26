@@ -81,7 +81,7 @@ if(PR){
 
   const STEPS_C=[
    {k:'시작',t:'연습창에 들어왔어요',p:'여기서는 실제처럼 마음껏 눌러도 돼요. 실제 UT 데이터와 완전히 분리돼 있고, <b>연습 끝내기</b>를 누르면 연습 내용은 모두 사라져요.<br>노트북은 운영진, 폰은 참가자 역할이에요.'},
-   {k:'운영진 입장',t:'먼저 운영진으로 입장해요',el:()=>document.getElementById('login'),do:'이름을 적고 역할은 <b>진행</b>을 고른 뒤 입장하기',done:()=>!!S.op&&S.role==='진행',hint:()=>S.op&&S.role!=='진행'?'연습에서는 단계를 직접 넘겨 봐야 해서 <b>진행</b>으로 들어와야 해요. 위쪽 운영진 바꾸기로 다시 입장해 주세요.':''},
+   {k:'운영진 입장',t:'먼저 운영진으로 입장해요',el:()=>document.getElementById('login'),p:'연습에서는 모든 기능을 써 봐야 해서 역할이 <b>진행</b>으로 골라져 있어요.',do:'이름을 적고 <b>입장하기</b>',done:()=>!!S.op&&S.role==='진행',hint:()=>S.op&&S.role!=='진행'?'연습에서는 단계를 직접 넘겨 봐야 해서 <b>진행</b>으로 들어와야 해요. 위쪽 운영진 바꾸기로 다시 입장해 주세요.':''},
    {k:'참가자 입장',t:'폰으로 참가자가 되어 들어와요',el:()=>document.querySelector('.stat'),qr:true,do:'폰 카메라로 QR을 찍어 이름 · 파트를 넣고 입장하기',done:()=>joined().length>0,skip:'폰이 없으면 이 노트북 새 탭으로',skipAct:()=>window.open(partUrl,'_blank')},
    {k:'참가자 현황',t:'참가자가 들어오면 여기에 떠요',el:()=>document.querySelector('.stat'),p:'이름 옆에 지금 어느 단계에 있는지, 답을 몇 개 했는지가 보여요. 빨간색이면 진행 단계와 다른 곳에 있다는 뜻이에요.'},
    {k:'단계 넘기기',t:'단계를 넘기면 폰 화면도 같이 넘어가요',el:()=>document.querySelector('#steps [data-s="1"]'),do:'<b>1. 평소 행동</b> 버튼 누르기',done:()=>R().step===1,after:'폰 화면이 질문으로 바뀌었는지 보세요'},
@@ -96,6 +96,7 @@ if(PR){
    {k:'요약',t:'선택형 답은 요약에서 한눈에',el:()=>document.querySelector('.otab[data-tab="sum"]'),do:'<b>요약</b> 탭 누르기',done:()=>S.tab==='sum'},
    {k:'정리',t:'UT가 끝나면 노션용 복사',el:()=>{if(S.tab!=='res')return document.querySelector('.otab[data-tab="res"]');return document.getElementById('copy')},p:'회차 결과표가 표로 복사돼서 회의 문서에 그대로 붙여 넣으면 돼요.',do:'<b>결과표</b> 탭에서 <b>노션용 복사</b> 누르기',done:()=>!!F.copy},
    {k:'새 회차',t:'회차가 끝나면 새 회차',el:()=>document.getElementById('newr'),p:'진행자만 보이는 버튼이에요. 실수 방지로 두 번 눌러야 시작되고, 이전 회차 결과는 그대로 남아요.',do:'<b>새 회차 시작</b>을 두 번 눌러 2회차 만들기 (연습이라 괜찮아요)',done:()=>{if(cur0===null)cur0=S.cur;return S.cur>cur0},after:'참가자 폰도 새 회차 처음 화면으로 돌아가요'},
+   {k:'역할 차이',t:'기록 역할은 여기까지만 달라요',el:()=>document.getElementById('steps'),p:'지금은 <b>진행</b>으로 모든 기능을 써 봤어요. 실제 UT에서 <b>기록</b>으로 들어오면:<br>· 단계 버튼, 자유 사용 타이머, 미션 시간, 새 회차 시작은 <b>누를 수 없고 보기만</b> 돼요. 화면은 진행자가 넘기는 대로 같이 넘어가요.<br>· 메모, 질문, 답변, 요약, 노션용 복사는 <b>진행과 똑같이</b> 쓸 수 있어요.<br>· <b>리뷰</b>는 UT가 끝난 뒤 결과표를 보며 메모만 남기는 역할이에요.'},
    {k:'끝',t:'연습 끝!',p:'이제 실제 UT에서도 똑같이 하면 돼요. <b>연습 끝내기</b>를 누르면 연습 내용이 지워지고 실제 운영 화면으로 돌아가요.<br>참가자 폰도 실제 UT 링크(QR)로 다시 들어오면 돼요.',end:true}
   ];
   let i=0;try{i=Number(sessionStorage.getItem('cm_i@'+ROOM))||0}catch(e){}
@@ -129,6 +130,7 @@ if(PR){
     place(el);
   }
   const tick=()=>{if(!S.ready){setTimeout(tick,300);return}
+    if(S.op==null&&L_.role!=='진행'){L_.role='진행';renderLogin()}
     const s=STEPS_C[i];if(s.k==='운영진 입장'&&S.op&&S.role==='진행'&&i===1){/* auto next after login */setI(2)}
     const sig=[S.op,S.role,i,joined().length>0].join('|');if(sig!==plSig){plSig=sig;plog()}
     draw(false)};
