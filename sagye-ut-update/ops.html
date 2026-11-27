@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>사계단지 UT 운영</title>
+<link rel="stylesheet" href="app.css?v=6">
+<style>.wrap{grid-template-columns:minmax(0,1fr)}html,body{height:100%;margin:0}.rt{table-layout:fixed;width:100%}.rt thead th:first-child{width:30%}.rt th,.rt td{overflow-wrap:anywhere;word-break:keep-all;white-space:normal}.rt td.ans{min-width:0}.rt td.tdk .it{overflow-wrap:anywhere}</style>
+</head>
+<body>
+<div class="top">
+  <h1>사계단지 UT 운영</h1>
+  <span class="lab" id="rlab"></span>
+  <span class="lab" id="me"></span>
+  <span class="lab" id="net" style="display:none;color:var(--hot);font-weight:700">연결 끊김 · 다시 연결 중</span>
+  <button class="btn" id="swop">운영진 바꾸기</button>
+  <button class="btn hot" id="newr">새 회차 시작</button>
+</div>
+<div class="wrap">
+  
+  <section class="ocol" aria-label="운영진 화면">
+    <div id="login" class="box" style="display:none;max-width:560px;padding:20px">
+      <h2 style="margin:0 0 4px;font-size:24px;letter-spacing:-.02em">운영진 입장</h2>
+      <p class="lab" style="margin:0 0 14px">입장한 이름이 메모 · 질문 · 답변 작성자로 자동으로 붙어요.</p>
+      <label class="lab" for="lname">이름</label>
+      <input id="lname" style="display:block;width:100%;border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--bg);margin:4px 0 12px" autocomplete="off" placeholder="이름">
+      <span class="lab">역할</span>
+      <div class="mrow" style="margin:6px 0 4px" id="lrole"><button class="btn" data-role="진행">진행</button><button class="btn" data-role="기록">기록</button><button class="btn" data-role="리뷰">리뷰</button></div>
+      <p class="lab" style="margin:0 0 12px">진행: 단계 이동 · 미션 시간 · 새 회차까지 조작. 기록: 현재 상황을 보며 메모 · 질문 · 답변. 리뷰: UT 뒤에 결과표를 보며 메모만.</p>
+      <button class="btn pri" id="lgo" disabled>입장하기</button>
+      <div id="lexist" style="margin-top:18px"></div>
+    </div>
+    <div id="opmain">
+    <div class="optop">
+    <div class="topgrid">
+      <div class="pvwrap"><div class="pvbar"><button class="mb" data-pv="-1" aria-label="이전 단계 화면">‹</button><span id="pvlab"></span><button class="mb" data-pv="1" aria-label="다음 단계 화면">›</button><button class="mb" data-pv="cur" id="pvcur">현재 단계로</button></div><div class="pv" id="pv"></div></div>
+      <div class="topr">
+        <div class="steps" id="steps"></div>
+        <div class="box" id="mctl" style="display:none;margin:0 0 8px"></div>
+        <div id="status"></div>
+      </div>
+    </div>
+    </div>
+    <div class="opmid" id="opmid">
+    <div class="otabs" role="tablist"><button class="otab on" data-tab="res">결과표</button><button class="otab" data-tab="sum">요약</button></div>
+    <div id="opbody"></div>
+    </div>
+    <div class="inbar" id="inbar">
+      <div class="itools" id="itools"></div>
+      <textarea id="cp" readonly></textarea>
+      <div class="mrow ionly"><b id="itag" style="font-size:14px"></b><span class="lab" id="ihint"></span><span class="inbtn"><button class="btn" id="idel" style="color:var(--hot)">삭제</button><button class="btn" id="icancel">취소</button><button class="btn pri" id="isave">저장</button></span></div>
+      <div class="inrow ionly"><textarea id="itxt" rows="2"></textarea></div>
+    </div>
+    </div>
+  </section>
+</div>
+<div id="modal" role="dialog" aria-modal="true"><div><p id="mdtxt" style="margin:0 0 16px"></p><div class="mrow" style="justify-content:flex-end"><button class="btn" id="mdno">취소</button><button class="btn hot" id="mdyes">계속</button></div></div></div>
+<script>window.MODE='ops';</script>
+<script src="config.js?v=6"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.2/dist/umd/supabase.js"></script>
+<script>window.supabase||document.write('<script src="https://unpkg.com/@supabase/supabase-js@2.119.2/dist/umd/supabase.js"><\/script>')</script>
+<script src="proto.js?v=7"></script>
+<script src="core.js?v=7"></script>
+<script src="net.js?v=6"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="coach.js?v=10"></script>
+</body>
+</html>
