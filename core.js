@@ -96,6 +96,7 @@ const stepScreen=(p,e)=>{
 const renderPhone=()=>{
   if(MODE!=='part')return;
   const p=P(),r=S.mine?S.rounds[S.mine.round]||R():R();
+  {const o=UT_PROTO.openFor?UT_PROTO.openFor():null;if(o!=null&&(!S.mine||o!==p.id||STEPS[eff(p)].proto!=='free')){UT_PROTO.close(false);return}}
   let head='',body='',foot='';
   const bar=`<div class="sbar"><span>${hm(now())}</span><span>${r.n}회차</span></div>`;
   if(!p.joined){
@@ -129,6 +130,7 @@ scr.addEventListener('click',ev=>{
   if(b.dataset.part){p.part=b.dataset.part;renderPhone();return}
   if(b.id==='join'){joinRound();return}
   if(!S.mine)return;
+  if(b.hasAttribute('data-proto-open')){UT_PROTO.open(p,{tap:n=>{p.taps.push({n,at:now()});markDirty(p)},close:()=>renderPhone()});return}
   if(b.dataset.tap&&b.closest('[data-proto]')){p.taps.push({n:b.dataset.tap,at:now()});if(UT_PROTO.onTap)UT_PROTO.onTap(p,b);markDirty(p);renderPhone();return}
     if(b.dataset.pick){
     const [id,i]=b.dataset.pick.split(':').map(Number),q=qdef(id),k='q'+id,a=p.draft[k]=p.draft[k]||{};
