@@ -44,6 +44,7 @@ const I={
  saved:'<svg width="56" height="56" viewBox="0 0 56 56"><rect x="17" y="12" width="26" height="30" rx="4" transform="rotate(16 30 27)" fill="#c9dcff"/><rect x="13" y="10" width="26" height="30" rx="4" transform="rotate(8 26 25)" fill="#dfe3e8"/><path d="M22 34l4 4 9-10" fill="none" stroke="#3182f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 };
 
+const DI={"twk": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10.8 7.3L9.4 7.8C8.6 8 8.1 8.6 7.8 9.3L7.3 10.8C7.2 11.1 6.8 11.1 6.8 10.8L6.3 9.4C6.1 8.6 5.5 8.1 4.7 7.8L3.2 7.3C2.9 7.2 2.9 6.8 3.2 6.8L4.6 6.3C5.4 6.1 5.9 5.5 6.2 4.7L6.7 3.2C6.8 2.9 7.2 2.9 7.2 3.2L7.7 4.6C7.9 5.4 8.5 5.9 9.3 6.2L10.7 6.6C11.1 6.8 11.1 7.2 10.8 7.3ZM7 0C3.1 0 0 3.1 0 7C0 10.9 3.1 14 7 14C10.9 14 14 10.9 14 7C14 3.1 10.9 0 7 0Z\" fill-rule=\"evenodd\" clip-rule=\"evenodd\" fill=\"#0A84E2\"/><path d=\"M10.8 7.3L9.4 7.8C8.6 8 8.1 8.6 7.8 9.3L7.3 10.8C7.2 11.1 6.8 11.1 6.8 10.8L6.3 9.4C6.1 8.6 5.5 8.1 4.7 7.8L3.2 7.3C2.9 7.2 2.9 6.8 3.2 6.8L4.6 6.3C5.4 6.1 5.9 5.5 6.2 4.7L6.7 3.2C6.8 2.9 7.2 2.9 7.2 3.2L7.7 4.6C7.9 5.4 8.5 5.9 9.3 6.2L10.7 6.6C11.1 6.8 11.1 7.2 10.8 7.3Z\" fill-rule=\"evenodd\" clip-rule=\"evenodd\" fill=\"white\"/></svg>", "six": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 14C3.2 14 0 10.9 0 7C0 3.2 3.2 0 7 0C10.9 0 14 3.2 14 7C14 10.9 10.9 14 7 14Z\" fill=\"#F2F2F2\"/><path d=\"M4.3 6.3C4.8 6.3 5.1 5.9 5.1 5.4C5.1 4.9 4.8 4.6 4.3 4.6C3.8 4.6 3.4 4.9 3.4 5.4C3.4 5.9 3.8 6.3 4.3 6.3Z\" fill=\"#FFC300\"/><path d=\"M4.3 9.5C4.8 9.5 5.1 9.1 5.1 8.6C5.1 8.1 4.8 7.7 4.3 7.7C3.8 7.7 3.4 8.1 3.4 8.6C3.4 9.1 3.8 9.5 4.3 9.5Z\" fill=\"#00C578\"/><path d=\"M7 11C7.5 11 7.9 10.6 7.9 10.2C7.9 9.7 7.5 9.3 7 9.3C6.5 9.3 6.1 9.7 6.1 10.2C6.1 10.6 6.5 11 7 11Z\" fill=\"#007FF9\"/><path d=\"M9.7 9.5C10.2 9.5 10.6 9.1 10.6 8.6C10.6 8.1 10.2 7.7 9.7 7.7C9.2 7.7 8.9 8.1 8.9 8.6C8.9 9.1 9.2 9.5 9.7 9.5Z\" fill=\"#4BA0FF\"/><path d=\"M9.7 6.3C10.2 6.3 10.6 5.9 10.6 5.4C10.6 4.9 10.2 4.6 9.7 4.6C9.2 4.6 8.9 4.9 8.9 5.4C8.9 5.9 9.2 6.3 9.7 6.3Z\" fill=\"#D567E8\"/><path d=\"M7 4.7C7.5 4.7 7.9 4.3 7.9 3.9C7.9 3.4 7.5 3 7 3C6.5 3 6.1 3.4 6.1 3.9C6.1 4.3 6.5 4.7 7 4.7Z\" fill=\"#FF2C4C\"/></svg>", "snw": "<svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" style=\"transform:scaleX(-1)\"><path d=\"M7 14C10.9 14 14 10.9 14 7C14 3.1 10.9 0 7 0C3.1 0 0 3.1 0 7C0 10.9 3.1 14 7 14Z\" fill=\"#9A92FF\"/><g stroke-width=\"0.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M9 8.2L10.3 9\" stroke=\"#C9CAFF\"/><path d=\"M5 5.8L9 8.2\" stroke=\"white\"/><path d=\"M3.7 5L5 5.8M9 5.8L10.3 5\" stroke=\"#C9CAFF\"/><path d=\"M5 8.2L9 5.8\" stroke=\"white\"/><path d=\"M3.7 9L5 8.2M7 9.3V10.8\" stroke=\"#C9CAFF\"/><path d=\"M7 4.7V9.3\" stroke=\"white\"/><path d=\"M7 3.2V4.7\" stroke=\"#C9CAFF\"/><path d=\"M6.1 3.8L7 4.7L7.9 3.8M6.1 10.2L7 9.3L7.9 10.2M3.8 6.2L5 5.8L4.9 4.5M9.1 9.5L9 8.2L10.2 7.8M4.9 9.5L5 8.2L3.8 7.8M10.2 6.2L9 5.8L9.1 4.5\" stroke=\"white\"/></g></svg>", "jarOff": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 2C12.9 2 13.6 2.6 13.6 3.4C16.4 3.6 18.7 4.5 19.3 5.7C19.6 6.3 19.2 6.8 18.4 6.9C18.3 6.9 18.1 6.9 18 7C20 8.2 21 10.2 21 12.6C21 16.7 19.1 20.5 17.2 21.6C17 21.9 16.6 22 16.1 22H7.9C7.4 22 7 21.9 6.8 21.6C4.9 20.5 3 16.7 3 12.6C3 10.2 4 8.2 6 7C5.9 6.9 5.7 6.9 5.6 6.9C4.8 6.8 4.4 6.3 4.7 5.7C5.3 4.5 7.6 3.6 10.4 3.4C10.4 2.6 11.1 2 12 2Z\" fill=\"#B0B8C1\"/></svg>", "homeOn": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M21.1 8.2L12.6 1.5C12.4 1.3 12.2 1.3 12 1.3C11.8 1.3 11.6 1.3 11.4 1.5L2.9 8.2C2.7 8.4 2.5 8.6 2.4 8.9C2.2 9.2 2.2 9.5 2.2 9.8V19.2C2.2 19.8 2.4 20.4 2.9 20.9C3.3 21.3 3.9 21.6 4.6 21.6H9C9.5 21.6 10 21.1 10 20.6V16.8C10 16.6 10.1 16.3 10.3 16.1C10.5 15.9 10.7 15.8 11 15.8H13C13.3 15.8 13.5 15.9 13.7 16.1C13.9 16.3 14 16.6 14 16.8V20.6C14 21.1 14.4 21.6 15 21.6H19.4C20.1 21.6 20.7 21.3 21.1 20.9C21.6 20.4 21.8 19.8 21.8 19.2V9.8C21.8 9.5 21.8 9.2 21.6 8.9C21.5 8.6 21.3 8.4 21.1 8.2Z\" fill-rule=\"evenodd\" clip-rule=\"evenodd\" fill=\"#000C1E\" fill-opacity=\"0.8\"/></svg>", "cam": "<svg width=\"23.9\" height=\"22.4\" viewBox=\"0 0 23.9 22.4\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M12 18.5C10.4 18.5 8.9 17.9 7.8 16.8C6.7 15.7 6.1 14.2 6.1 12.6C6.1 11 6.7 9.5 7.8 8.4C8.9 7.3 10.4 6.7 12 6.7C13.5 6.7 15 7.3 16.1 8.4C17.2 9.5 17.9 11 17.9 12.6C17.9 14.2 17.2 15.7 16.1 16.8C15 17.9 13.5 18.5 12 18.5ZM21.1 3.7H17.8L16.5 1.3C16.3 0.9 16 0.6 15.6 0.3C15.3 0.1 14.8 0 14.4 0H9.4C9 0 8.6 0.1 8.2 0.4C7.8 0.6 7.5 0.9 7.3 1.3L6.2 3.7H2.8C2.5 3.7 2.1 3.8 1.8 3.9C1.4 4.1 1.1 4.3 0.8 4.6C0.6 4.8 0.4 5.1 0.2 5.5C0.1 5.8 0 6.2 0 6.6V19.6C0 20 0.1 20.3 0.2 20.7C0.4 21 0.6 21.4 0.8 21.6C1.1 21.9 1.4 22.1 1.8 22.2C2.1 22.4 2.5 22.4 2.8 22.4H21.1C21.5 22.4 21.8 22.4 22.2 22.2C22.5 22.1 22.8 21.9 23.1 21.6C23.4 21.4 23.6 21 23.7 20.7C23.9 20.3 23.9 20 23.9 19.6V6.6C23.9 6.2 23.9 5.8 23.7 5.5C23.6 5.1 23.4 4.8 23.1 4.6C22.8 4.3 22.5 4.1 22.2 3.9C21.8 3.8 21.5 3.7 21.1 3.7Z\" fill-rule=\"evenodd\" clip-rule=\"evenodd\" fill=\"white\"/><path d=\"M12 8.8C11 8.8 10 9.2 9.3 9.9C8.6 10.6 8.2 11.6 8.2 12.6C8.2 13.6 8.6 14.6 9.3 15.3C10 16 11 16.4 12 16.4C13 16.4 13.9 16 14.6 15.3C15.3 14.6 15.7 13.6 15.7 12.6C15.7 11.6 15.3 10.6 14.6 9.9C13.9 9.2 13 8.8 12 8.8Z\" fill-rule=\"evenodd\" clip-rule=\"evenodd\" fill=\"white\"/></svg>", "ppl": "<svg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7.5 9.6C9.1 9.6 10.4 8.3 10.4 6.7C10.4 5.1 9.1 3.8 7.5 3.8C5.9 3.8 4.6 5.1 4.6 6.7C4.6 8.3 5.9 9.6 7.5 9.6Z\" fill=\"#1660E8\"/><path d=\"M2.1 15.8C2.1 13.1 4.5 11.3 7.5 11.3C10.5 11.3 12.9 13.1 12.9 15.8V16C12.9 16.6 12.5 17.1 11.9 17.1H3.1C2.5 17.1 2.1 16.6 2.1 16V15.8Z\" fill=\"#1660E8\"/><path d=\"M13.8 9.6C15.1 9.6 16.3 8.5 16.3 7.1C16.3 5.7 15.1 4.6 13.8 4.6C12.4 4.6 11.3 5.7 11.3 7.1C11.3 8.5 12.4 9.6 13.8 9.6Z\" fill=\"#1660E8\"/><path d=\"M14.2 11.3C16.4 11.5 17.9 13.2 17.9 15.6C17.9 16.3 17.4 17.1 16.7 17.1H14.3C14.5 16.8 14.6 16.3 14.6 15.8C14.6 14.1 13.9 12.6 12.8 11.6C13.3 11.4 13.7 11.3 14.2 11.3Z\" fill=\"#1660E8\"/></svg>", "hrtOn": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7.3 14.2C7.7 14.5 8.3 14.5 8.7 14.2C10.1 13.3 13.2 11 14.5 8.5C16.3 5.3 14.2 2 11.5 2C10 2 9.1 2.8 8.5 3.5C8.3 3.8 7.9 3.8 7.6 3.6C7.6 3.6 7.5 3.5 7.5 3.5C6.9 2.8 6 2 4.5 2C1.8 2 -0.3 5.3 1.5 8.5C2.8 11 5.9 13.3 7.3 14.2Z\" fill-rule=\"evenodd\" clip-rule=\"evenodd\" fill=\"#F04452\"/></svg>", "lc2": "<svg width=\"28\" height=\"28\" viewBox=\"0 0 28 28\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M14 1.2C6.9 1.2 1.2 6.9 1.2 14C1.2 21.1 6.9 26.8 14 26.8C21.1 26.8 26.8 21.1 26.8 14C26.8 6.9 21.1 1.2 14 1.2ZM19.3 15.2H11.6L14.2 17.9C14.7 18.3 14.7 19 14.2 19.5C14 19.7 13.7 19.8 13.4 19.8C13.2 19.8 12.8 19.7 12.6 19.5L7.9 14.8C7.5 14.4 7.5 13.7 7.9 13.2L12.6 8.5C13.1 8.1 13.8 8.1 14.2 8.5C14.7 9 14.7 9.7 14.2 10.2L11.6 12.8H19.3C20 12.8 20.4 13.3 20.4 14C20.4 14.7 19.8 15.2 19.3 15.2Z\" fill=\"#A6B0BA\"/></svg>", "tdots": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.2 14C4.1 14 3.2 13.1 3.2 12C3.2 10.9 4.1 10 5.2 10C6.3 10 7.2 10.9 7.2 12C7.2 13.1 6.3 14 5.2 14ZM12 14C10.9 14 10 13.1 10 12C10 10.9 10.9 10 12 10C13.1 10 14 10.9 14 12C14 13.1 13.1 14 12 14ZM18.8 14C17.7 14 16.8 13.1 16.8 12C16.8 10.9 17.7 10 18.8 10C19.9 10 20.8 10.9 20.8 12C20.8 13.1 19.9 14 18.8 14Z\" fill=\"#B0B8C1\"/></svg>", "alarm": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M8.4 15.6C9 15.6 9.6 15.3 10.1 14.9C10.5 14.4 10.7 13.8 10.7 13.2H6C6 13.8 6.3 14.4 6.7 14.9C7.2 15.3 7.8 15.6 8.4 15.6ZM14.7 11L13.8 9.4V6.7C13.8 3.8 11.6 1.3 8.8 1.1C8 1.1 7.3 1.2 6.6 1.4C5.9 1.7 5.3 2 4.7 2.6C4.2 3.1 3.7 3.7 3.5 4.3C3.2 5 3 5.7 3 6.5V9.4L2.1 11C2 11.1 2 11.2 2 11.3C2 11.4 2 11.6 2.1 11.7C2.2 11.8 2.2 11.9 2.3 11.9C2.4 12 2.6 12 2.7 12H14.1C14.6 12 15 11.4 14.7 11\" fill-rule=\"evenodd\" clip-rule=\"evenodd\" fill=\"#6B7684\"/></svg>", "arr": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M6.5 4.3C6.4 4.3 6.2 4.4 6.1 4.5C5.9 4.8 5.9 5.1 6.1 5.4L8.7 7.9L6.1 10.5C5.8 10.8 5.8 11.1 6.1 11.4C6.3 11.7 6.7 11.7 6.9 11.4L9.9 8.4C10.2 8.1 10.2 7.8 9.9 7.5L6.9 4.5C6.8 4.5 6.7 4.3 6.5 4.3Z\" fill-rule=\"evenodd\" clip-rule=\"evenodd\" fill=\"#8B95A1\"/></svg>", "siren": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M6 17C6 15.4087 6.63214 13.8826 7.75736 12.7574C8.88258 11.6321 10.4087 11 12 11C13.5913 11 15.1174 11.6321 16.2426 12.7574C17.3679 13.8826 18 15.4087 18 17H6Z\" fill=\"#031832\" fill-opacity=\"0.46\"/><path d=\"M20.5 19H3.5C2.94772 19 2.5 19.4477 2.5 20C2.5 20.5523 2.94772 21 3.5 21H20.5C21.0523 21 21.5 20.5523 21.5 20C21.5 19.4477 21.0523 19 20.5 19Z\" fill=\"#031832\" fill-opacity=\"0.46\"/><path d=\"M13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5V7.5C11 8.05228 11.4477 8.5 12 8.5C12.5523 8.5 13 8.05228 13 7.5V5Z\" fill=\"#031832\" fill-opacity=\"0.46\"/><path d=\"M4.75 8.33579C4.35948 7.94526 3.72631 7.94526 3.33579 8.33579C2.94526 8.72631 2.94526 9.35948 3.33579 9.75L4.75 11.1642C5.14052 11.5547 5.77369 11.5547 6.16421 11.1642C6.55474 10.7737 6.55474 10.1405 6.16421 9.75L4.75 8.33579Z\" fill=\"#031832\" fill-opacity=\"0.46\"/><path d=\"M20.6642 9.75C21.0547 9.35948 21.0547 8.72631 20.6642 8.33579C20.2737 7.94526 19.6405 7.94526 19.25 8.33579L17.8358 9.75C17.4453 10.1405 17.4453 10.7737 17.8358 11.1642C18.2263 11.5547 18.8595 11.5547 19.25 11.1642L20.6642 9.75Z\" fill=\"#031832\" fill-opacity=\"0.46\"/></svg>", "homeOff": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M21.1 8.2L12.6 1.5C12.4 1.3 12.2 1.3 12 1.3C11.8 1.3 11.6 1.3 11.4 1.5L2.9 8.2C2.7 8.4 2.5 8.6 2.4 8.9C2.2 9.2 2.2 9.5 2.2 9.8V19.2C2.2 19.8 2.4 20.4 2.9 20.9C3.3 21.3 3.9 21.6 4.6 21.6H9C9.5 21.6 10 21.1 10 20.6V16.8C10 16.6 10.1 16.3 10.3 16.1C10.5 15.9 10.7 15.8 11 15.8H13C13.3 15.8 13.5 15.9 13.7 16.1C13.9 16.3 14 16.6 14 16.8V20.6C14 21.1 14.4 21.6 15 21.6H19.4C20.1 21.6 20.7 21.3 21.1 20.9C21.6 20.4 21.8 19.8 21.8 19.2V9.8C21.8 9.5 21.8 9.2 21.6 8.9C21.5 8.6 21.3 8.4 21.1 8.2Z\" fill-rule=\"evenodd\" clip-rule=\"evenodd\" fill=\"#B0B8C1\"/></svg>", "ch0": "<svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><mask id=\"utpch0\" fill=\"white\"><path d=\"M5.5 10.6C5.8 10.9 6.2 10.9 6.5 10.6C7.6 9.9 9.9 8.3 10.9 6.4C12.2 3.9 10.7 1.5 8.6 1.5C7.5 1.5 6.8 2.1 6.4 2.6C6.2 2.8 5.9 2.9 5.7 2.7C5.7 2.7 5.6 2.7 5.6 2.6C5.2 2.1 4.5 1.5 3.4 1.5C1.3 1.5 -0.2 3.9 1.1 6.4C2.1 8.3 4.4 9.9 5.5 10.6Z\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></mask><path d=\"M5.5 10.6C5.8 10.9 6.2 10.9 6.5 10.6C7.6 9.9 9.9 8.3 10.9 6.4C12.2 3.9 10.7 1.5 8.6 1.5C7.5 1.5 6.8 2.1 6.4 2.6C6.2 2.8 5.9 2.9 5.7 2.7C5.7 2.7 5.6 2.7 5.6 2.6C5.2 2.1 4.5 1.5 3.4 1.5C1.3 1.5 -0.2 3.9 1.1 6.4C2.1 8.3 4.4 9.9 5.5 10.6Z\" stroke-width=\"2\" stroke=\"#4E5968\" mask=\"url(#utpch0)\"/></svg>", "ch1": "<svg width=\"12\" height=\"12\" viewBox=\"0 0 12 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.5 10.6C5.8 10.9 6.2 10.9 6.5 10.6C7.6 9.9 9.9 8.3 10.9 6.4C12.2 3.9 10.7 1.5 8.6 1.5C7.5 1.5 6.8 2.1 6.4 2.6C6.2 2.8 5.9 2.9 5.7 2.7C5.7 2.7 5.6 2.7 5.6 2.6C5.2 2.1 4.5 1.5 3.4 1.5C1.3 1.5 -0.2 3.9 1.1 6.4C2.1 8.3 4.4 9.9 5.5 10.6Z\" fill=\"#F04452\"/></svg>", "hrtOff": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 12 12\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><mask id=\"utpdh0\" fill=\"white\"><path d=\"M5.5 10.6C5.8 10.9 6.2 10.9 6.5 10.6C7.6 9.9 9.9 8.3 10.9 6.4C12.2 3.9 10.7 1.5 8.6 1.5C7.5 1.5 6.8 2.1 6.4 2.6C6.2 2.8 5.9 2.9 5.7 2.7C5.7 2.7 5.6 2.7 5.6 2.6C5.2 2.1 4.5 1.5 3.4 1.5C1.3 1.5 -0.2 3.9 1.1 6.4C2.1 8.3 4.4 9.9 5.5 10.6Z\" fill-rule=\"evenodd\" clip-rule=\"evenodd\"/></mask><path d=\"M5.5 10.6C5.8 10.9 6.2 10.9 6.5 10.6C7.6 9.9 9.9 8.3 10.9 6.4C12.2 3.9 10.7 1.5 8.6 1.5C7.5 1.5 6.8 2.1 6.4 2.6C6.2 2.8 5.9 2.9 5.7 2.7C5.7 2.7 5.6 2.7 5.6 2.6C5.2 2.1 4.5 1.5 3.4 1.5C1.3 1.5 -0.2 3.9 1.1 6.4C2.1 8.3 4.4 9.9 5.5 10.6Z\" stroke-width=\"2\" stroke=\"#4E5968\" mask=\"url(#utpdh0)\"/></svg>"};
 /* ---------- data ---------- */
 const FEED0=[
  {id:'f1',t:'생강차',by:'축하하는 라이언',img:'ginger.jpg',lab:'따뜻한 차',like:24},
@@ -276,10 +277,95 @@ const CSS=`
 #utp .unf{display:block;width:100%;max-width:307px;margin:14px auto 0}
 #utp .usheet h4.c{text-align:center}
 #utp .usheet .sb.c{text-align:center;padding-top:14px}
+
+/* ---- 디자이너 확정값 (11/28 2차) ---- */
+#utp .utpz{position:relative;overflow:hidden}
+#utp *{letter-spacing:-0.025em}
+#utp .ubg.dt{background:url('${IMG}bg_snow.png') 0 0/375px 812px no-repeat,linear-gradient(180deg,#eef5ff,#fcfcfc)}
+#utp .ubg.dj{background:url('${IMG}bg_snow.png') 0 0/375px 812px no-repeat,linear-gradient(180deg,#fff,#eaf2ff)}
+#utp .bp{background:linear-gradient(-1.17deg,#1660e8 19.65%,#d1d3ff 142.44%)}
+/* tab bar */
+#utp .utab{height:auto;background:none;border:0!important;border-radius:0;padding:0;display:block}
+#utp .utab .tbg{position:absolute;left:0;right:0;top:29px;bottom:0;background:#fff;border:1px solid rgba(0,27,55,.1)!important;border-bottom:0!important;border-radius:24px 24px 0 0}
+#utp .utab .trow{position:relative;display:flex;gap:21px;align-items:flex-end;padding:0 0 max(var(--sab),33px) 18px}
+#utp .utab .ti{flex:none;width:109px;min-width:46px;height:43px;padding:1px 6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:11px;font-weight:500;line-height:13.2px;color:#8b95a1}
+#utp .utab .ti.on{color:rgba(0,12,30,.8)}
+#utp .utab .ti:last-child{color:rgba(3,24,50,.46)}
+#utp .utab .ti:last-child.on{color:#333d4b}
+#utp .utab .tic{position:relative;display:block;width:24px;height:24px}
+#utp .utab .tic svg{display:block}
+#utp .utab .jon{position:absolute;width:66px;height:63px;left:-20.5px;top:-3.3px;max-width:none}
+#utp .utab .camb{flex:none;width:80px;height:80px;margin:0;border-radius:40px;border:10px solid #fff;padding:18px 17px 18px 19px;display:flex;align-items:center;justify-content:center;background:linear-gradient(-29.9deg,#1660e8 7.07%,#dce1ff 91.56%) padding-box}
+#utp .utab .cic{position:relative;display:block;width:27px;height:27px}
+#utp .utab .cic svg{position:absolute;left:1.54px;top:2.05px;display:block}
+/* home top cards */
+#utp .utops{grid-template-columns:105px 213px;gap:8px;width:326px;margin:-79px 0 0 24px}
+#utp .tc{background:#fff;border-radius:16px;box-shadow:none;filter:drop-shadow(0 2px 6px rgba(0,0,0,.12));-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);padding:20px 14px;height:100px}
+#utp .utops .tc:first-child{height:99px}
+/* feed card */
+#utp .ucard .tx b{line-height:1.252}
+#utp .bdg{background:rgba(255,255,255,.6);-webkit-backdrop-filter:blur(3.5px);backdrop-filter:blur(3.5px);border-radius:9px;padding:3px 7px;font-size:10px;font-weight:600;line-height:1.5;color:rgba(3,18,40,.7)}
+#utp .hb{width:22px;height:21px;border-radius:9px;background:rgba(255,255,255,.6);-webkit-backdrop-filter:blur(3.5px);backdrop-filter:blur(3.5px)}
+#utp .hb svg{display:block}
+/* chips */
+#utp .ucp{height:auto;display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:100px;font-size:13px;font-weight:600;line-height:1.35;box-shadow:none}
+#utp .ucp svg{flex:none;display:block}
+#utp .ucp.tea{background:#ddeaff;color:#0a84e2}
+#utp .ucp.org{background:#fff;color:#4e5968;box-shadow:none}
+#utp .ucp.etc{background:rgba(225,222,255,.9);color:#8155e2}
+/* 상세 · 내 기록 */
+#utp .dt .lh{height:60px;padding:16px 24px 4px;gap:8px;align-items:center}
+#utp .dt .lh>button:first-child svg{display:block}
+#utp .dt .lh .nm b{font-size:17px;font-weight:700;line-height:1.25;color:rgba(0,12,30,.8)}
+#utp .dt .lh .nm span{font-size:12px;line-height:1.35;color:rgba(0,19,43,.58);opacity:.91}
+#utp .dt .lh .mo.sq{width:38px;height:38px;padding:6px;border-radius:8px;background:rgba(7,25,76,.05)}
+#utp .dt .lh .mo.sq svg{width:16px;height:16px;display:block}
+#utp .dt.mn .lh .mo{width:36px;height:36px;padding:6px;border-radius:8px;background:rgba(2,32,71,.05)}
+#utp .dt.mn .lh .mo svg{display:block}
+#utp .dt .bigph{margin:3px 21px 0;width:333px;height:380px;aspect-ratio:auto;border-radius:12px;box-shadow:none}
+#utp .dt.mn .bigph{border-radius:16px}
+#utp .dt .bigph .pb{top:15px;right:15px;display:flex;align-items:center;gap:10px;padding:4px 8px;border-radius:13px;background:#dae7ff;-webkit-backdrop-filter:blur(3.5px);backdrop-filter:blur(3.5px);font-size:14px;font-weight:700;line-height:21px;color:#1660e8}
+#utp .dt .bigph .pb svg{display:block;flex:none}
+#utp .dt .bigph .pb.off{background:rgba(0,0,0,.32);color:#fff}
+#utp .dt .umc{margin:16px 21px 0;width:333px;height:143px;min-height:0;padding:18px 20px;border-radius:20px;background:rgba(255,255,255,.62);box-shadow:none;filter:drop-shadow(0 8px 12px rgba(49,130,246,.08));display:flex;flex-direction:column;align-items:flex-start;gap:32px}
+#utp .dt .umc .tp{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+#utp .dt .umc .t{margin:0;font-size:17px;font-weight:700;line-height:1.35;color:#1f1f1f}
+#utp .dt .umc .ulike{margin:0;padding:0;height:auto;display:flex;align-items:center;gap:2px;font-size:14px;font-weight:500;line-height:1.252;color:rgba(3,18,40,.7)}
+#utp .dt .umc .ulike .hi{width:24px;height:24px;display:flex;align-items:center;justify-content:center}
+#utp .dt .umc .ulike .hi svg{display:block}
+#utp .umenu{right:24px;top:calc(44px + var(--sat) + 59px);width:180px;min-width:180px;padding:10px 4px;border-radius:20px;background:rgba(253,253,254,.89);border:1px solid rgba(253,253,255,.75)!important;-webkit-backdrop-filter:blur(11px);backdrop-filter:blur(11px);box-shadow:0 16px 60px rgba(0,27,55,.1)}
+#utp .umenu button{min-height:44px;padding:8px 16px;border-radius:12px;font-size:17px;font-weight:500;line-height:25.5px;color:rgba(3,18,40,.7)}
+/* 내 단지 */
+#utp .dj .dcon{padding:14px 0 24px;display:flex;flex-direction:column;gap:16px}
+#utp .dj .dh{padding:0 20px 0 24px;display:flex;align-items:center;justify-content:space-between}
+#utp .dj .dh h2{font-size:24px;font-weight:700;line-height:1.35;color:rgba(0,12,30,.8)}
+#utp .dj .alb{display:flex;align-items:center;gap:4px;background:#f2f4f6;border-radius:100px;padding:7px 12px 7px 10px;font-size:13px;font-weight:600;line-height:normal;color:#4e5968}
+#utp .dj .alb svg{display:block;flex:none}
+#utp .dj .seas{display:flex;gap:6px;padding:6px 20px}
+#utp .dj .seas button{position:relative;overflow:hidden;min-height:32px;min-width:52px;padding:2px 11px;border-radius:999px;background:rgba(7,25,76,.05);border:.66px solid rgba(0,23,51,.02)!important;font-size:13px;font-weight:600;line-height:1.252;color:rgba(3,18,40,.7);display:flex;align-items:center;justify-content:center}
+#utp .dj .seas button.on{background:rgba(0,12,30,.8);border-color:rgba(3,24,50,.46)!important;color:#fff}
+#utp .dj .seas button.on::before{content:"";position:absolute;inset:-16.66px -12.66px -28.66px -24.66px;background:radial-gradient(closest-side,rgba(3,18,40,.7),rgba(3,18,40,0))}
+#utp .dj .seas span{position:relative}
+#utp .dj .ucolw{padding:0 20px}
+#utp .dj .ucol{width:100%;margin:0;height:auto;display:flex;align-items:center;gap:12px;padding:14px 14px 14px 16px;border-radius:16px;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+#utp .dj .ucol .dots{display:flex;width:48px;height:28px;margin:0;flex:none}
+#utp .dj .ucol .dots i{width:28px;height:28px;border-radius:14px;margin-right:-8px;box-shadow:none}
+#utp .dj .ucol b{flex:1;margin:0;text-align:left;font-size:17px;font-weight:700;line-height:1.35;color:rgba(0,12,30,.8)}
+#utp .dj .ucol .all{display:flex;align-items:center;gap:2px;margin:0;font-size:13px;line-height:1.5;color:#6b7684}
+#utp .dj .ucol .all svg{display:block}
+#utp .dj .dg{grid-template-columns:repeat(3,99px);gap:15px;padding:0 24px}
+#utp .dj .dc{aspect-ratio:99/124}
+#utp .dempty{margin:0 24px;border:1px dashed #8b95a1!important;border-radius:16px;padding:33px 70px;display:flex;flex-direction:column;align-items:center;gap:16px}
+#utp .dempty .in{display:flex;flex-direction:column;align-items:center;gap:24px}
+#utp .dempty .ill{display:block;width:190px;height:150px;margin:-4px 0;max-width:none}
+#utp .dempty .tx{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;white-space:nowrap}
+#utp .dempty .tx b{font-size:17px;font-weight:500;line-height:1.5;color:#000}
+#utp .dempty .tx p{font-size:13px;font-weight:500;line-height:1.35;color:rgba(3,24,50,.46)}
+#utp .dempty .bw{width:153.5px;min-height:56px;padding:2px 28px;border-radius:16px;background:rgba(7,25,76,.05);opacity:.9;font-size:17px;font-weight:600;line-height:1.252;color:rgba(3,18,40,.7);text-align:center;white-space:nowrap}
 `;
 
 /* ---------- state ---------- */
-let root=null,st=null,hooks=null,pid=null,tipT=null,toastT=null;
+let outer=null,root=null,fitF=null,st=null,hooks=null,pid=null,tipT=null,toastT=null;
 const fresh=()=>({stack:['home'],sheet:null,pop:null,sort:'인기순',feed:FEED0.map((x,i)=>({...x,rk:i,ago:[95,30,140,12,60,200,45,8][i],like:x.like-(x.liked0?1:0),liked:!!x.liked0})),pickI:0,spI:0,
   up:null,mine:[{id:'m1',img:'snowman.jpg',big:'snowman_b.jpg',date:'11.26',lab:'그 밖의 겨울',t:'올해 첫 눈사람',pub:false,like:0},{id:'m2',img:'trees.jpg',big:'trees_b.jpg',date:'11.26',lab:'그 밖의 겨울',t:'밤 산책',pub:true,like:22},{id:'m3',img:'xmas.jpg',big:'xmas_b.jpg',date:'11.25',lab:'그 밖의 겨울',t:'리스 만들기',pub:true,like:12}],
   cur:null,season:'겨울',alarm:'낮 12시',alarmSel:'낮 12시',alarmOff:false,askAlarm:true,tipShown:false,reported:{},colors:[['파랑','b','11월 셋째 주']]});
@@ -299,19 +385,19 @@ const BIG={'boots_s.jpg':'boots.jpg'};
 
 /* ---------- pieces ---------- */
 const nav=()=>`<div class="tnav"><button class="bk" data-t="상단바 뒤로" data-a="back">${I.back}</button><div class="tt" data-t="상단바 앱 이름">${I.logo}<span>사계단지</span></div><div class="upill"><button class="ib" data-t="상단바 더보기(···)">${I.dots}</button><i></i><button class="end" data-t="상단바 종료하기" data-a="end">종료하기</button></div></div>`;
-const tabbar=on=>`<div class="utab"><button class="ti ${on==='home'?'on':''}" data-t="하단 탭 홈" data-a="tab:home">${on==='home'?I.home:I.homeo}홈</button><button class="camb" data-t="하단 탭 카메라" data-a="camera">${I.cam}</button><button class="ti ${on==='danji'?'on':''}" data-t="하단 탭 내 단지" data-a="tab:danji">${on==='danji'?I.jaron:I.jar}내 단지</button></div>`;
+const tabbar=on=>`<div class="utab"><div class="tbg"></div><div class="trow"><button class="ti ${on==='home'?'on':''}" data-t="하단 탭 홈" data-a="tab:home"><span class="tic">${on==='home'?DI.homeOn:DI.homeOff}</span>홈</button><button class="camb" data-t="하단 탭 카메라" data-a="camera"><span class="cic">${DI.cam}</span></button><button class="ti ${on==='danji'?'on':''}" data-t="하단 탭 내 단지" data-a="tab:danji"><span class="tic">${on==='danji'?`<img class="jon" src="${IMG}jar_on.svg" alt="">`:DI.jarOff}</span>내 단지</button></div></div>`;
 const pad='<div style="height:calc(44px + var(--sat))"></div>';
-const fcard=(f)=>`<button class="ucard" data-t="사진 카드 '${esc(f.t)}'" data-a="feed:${f.id}"><span class="ph" style="background-image:url('${IMG+f.img}')"></span><span class="bdg">${esc(f.lab)}</span><span class="hb" data-t="사진 카드 '${esc(f.t)}' 하트" data-a="like:${f.id}">${I.heart(f.liked)}</span><span class="tx"><b>${esc(f.t)}</b><span>${esc(f.by)}</span></span></button>`;
+const fcard=(f)=>`<button class="ucard" data-t="사진 카드 '${esc(f.t)}'" data-a="feed:${f.id}"><span class="ph" style="background-image:url('${IMG+f.img}')"></span><span class="bdg">${esc(f.lab)}</span><span class="hb" data-t="사진 카드 '${esc(f.t)}' 하트" data-a="like:${f.id}">${f.liked?DI.ch1:DI.ch0}</span><span class="tx"><b>${esc(f.t)}</b><span>${esc(f.by)}</span></span></button>`;
 const pk=(x,i,k)=>`<div class="upk" data-t="${k==='pick'?'에디터 PICK':'에디터 특별 추천'} 카드 '${esc(x.t)}'" data-a="src:${k}:${i}"><img src="${IMG}jar.jpg" alt=""><div><b>${esc(x.t)}</b><small>${esc(x.src)}</small></div><button class="ugo" data-t="${k==='pick'?'에디터 PICK':'에디터 특별 추천'} '${esc(x.pf)}로 이동'" data-a="src:${k}:${i}">${esc(x.pf)}로 이동</button></div>`;
 
 /* ---------- screens ---------- */
 const S={};
 const CW={b:'linear-gradient(160deg,#d6e6ff,#3182f6)',o:'linear-gradient(160deg,#ffc9a0,#f26a10)'};
 const CDOT={b:'#3182f6',o:'#ff7a1a'};
-const chipPill=l=>l==='따뜻한 차'?`<span class="ucp tea">${I.cpTea}따뜻한 차</span>`:l==='주황'?`<span class="ucp org">${I.cpOrg}주황</span>`:`<span class="ucp etc">${I.cpEtc}${esc(l)}</span>`;
-const snow=`<div class="usnow" aria-hidden="true"><i style="left:330px;top:98px;font-size:18px">❄</i><i style="left:6px;top:196px;font-size:14px">❄</i><i style="left:354px;top:300px;font-size:16px">❄</i><i style="left:4px;top:440px;font-size:13px">❄</i><i style="left:312px;top:690px;font-size:20px">❄</i><i style="left:36px;top:716px;font-size:15px">❄</i><b style="left:64px;top:104px"></b><b style="left:252px;top:98px"></b><b style="left:362px;top:470px"></b><b style="left:8px;top:528px"></b><b style="left:176px;top:692px"></b></div>`;
-const pubBadge=pub=>pub?`<span class="pb">${I.people('#1660e8',18)}공개</span>`:`<span class="pb off">${I.lock('#fff',16)}비공개</span>`;
-const metaCard=(lab,t,likeBtn)=>`<div class="umc"><div>${chipPill(lab)}</div>${t?`<div class="t">${esc(t)}</div>`:''}${likeBtn}</div>`;
+const chipPill=l=>l==='따뜻한 차'?`<span class="ucp tea">${DI.twk}따뜻한 차</span>`:l==='주황'?`<span class="ucp org">${DI.six}주황</span>`:`<span class="ucp etc">${DI.snw}${esc(l)}</span>`;
+const snow='';
+const pubBadge=pub=>pub?`<span class="pb">${DI.ppl}공개</span>`:`<span class="pb off">${I.lock('#fff',16)}비공개</span>`;
+const metaCard=(lab,t,likeBtn)=>`<div class="umc"><div class="tp">${chipPill(lab)}${t?`<div class="t">${esc(t)}</div>`:''}</div>${likeBtn}</div>`;
 S.home=()=>{const fd=st.feed.filter(f=>!st.reported[f.id]);const srt=st.sort==='인기순'?[...fd].sort((a,b)=>(a.rk??99)-(b.rk??99)):[...fd].sort((a,b)=>(a.ago??0)-(b.ago??0));
   const g1=srt.slice(0,4),g2=srt.slice(4);
   return `<div class="uscr" data-scr>
@@ -330,10 +416,10 @@ S.home=()=>{const fd=st.feed.filter(f=>!st.reported[f.id]);const srt=st.sort==='
   :`<div class="uempty" data-t="빈 피드 안내"><img class="ill" src="${IMG}ill_empty.png" alt="" style="width:90px"><b>아직 올라온 사진이 없어요</b><p>오늘 첫 사진을 올리면<br>여기에서 모두가 같이 볼 수 있어요</p><button data-t="첫 사진 올리기" data-a="upchip:">첫 사진 올리기</button></div>`}
   <div style="height:calc(130px + var(--sab))"></div></div>`+tabbar('home')};
 S.detail=()=>{const f=st.feed.find(x=>x.id===st.cur);if(!f)return S.home();const n=f.like+(f.liked?1:0);
-  return `<div class="uscr grad" data-scr>${snow}${pad}
-  <div class="lh"><button data-t="게시물 뒤로(원 화살표)" data-a="back">${I.lc}</button><div class="nm"><b>${esc(f.by)}</b><span>30분 전</span></div><button class="mo sq" data-t="게시물 신고 버튼" data-a="sheet:report">${I.siren}</button></div>
+  return `<div class="uscr ubg dt" data-scr>${pad}
+  <div class="lh"><button data-t="게시물 뒤로(원 화살표)" data-a="back">${DI.lc2}</button><div class="nm"><b>${esc(f.by)}</b><span>30분 전</span></div><button class="mo sq" data-t="게시물 신고 버튼" data-a="sheet:report">${DI.siren}</button></div>
   <div class="bigph" data-t="게시물 사진" style="background-image:url('${IMG+(f.big||f.img)}')">${pubBadge(true)}</div>
-  ${metaCard(f.lab,f.t,`<button class="ulike" data-t="게시물 좋아요(${f.liked?'취소':'누름'})" data-a="like:${f.id}"><span class="hi">${I.heart(f.liked,'#4e5968',18)}</span>${n}</button>`)}
+  ${metaCard(f.lab,f.t,`<button class="ulike" data-t="게시물 좋아요(${f.liked?'취소':'누름'})" data-a="like:${f.id}"><span class="hi">${f.liked?DI.hrtOn:DI.hrtOff}</span>${n}</button>`)}
   <div style="height:calc(140px + var(--sab))"></div></div>
   <div class="ucta"><button class="bp" data-t="나도 해보기" data-a="metoo:${f.id}">나도 해보기</button></div>`};
 const visBtns=u=>`<div class="uvis"><button class="bm ${u.pub?'on':''}" data-t="공개 범위 '공개'" data-a="pub:1">${I.people(u.pub?'#1660e8':'#8b95a1')}공개</button><button class="bm ${!u.pub?'on':''}" data-t="공개 범위 '비공개'" data-a="pub:0">${I.lock(!u.pub?'#1660e8':'#8b95a1')}비공개</button></div>`;
@@ -353,21 +439,20 @@ S.done=()=>{const r=st.last;return `<div class="uscr" data-scr style="background
   <p>${r.chip===0&&r.firstColor?`오늘 <em>주황</em>을 찾았어요<br>이번 겨울에 찾은 색은 ${st.colors.length}개예요!`:(r.pub?'다른 사람들도 볼 수 있게 올렸어요':'나만 볼 수 있게 저장했어요')}</p></div>
   <div style="height:200px"></div></div>
   <div class="ctaw">${r.pub?`<button class="bp" data-t="다른 사람들 사진 보기" data-a="tohome">다른 사람들 사진 보기</button><button class="bl" data-t="내 단지 보기" data-a="todanji">내 단지 보기</button>`:`<button class="bp" data-t="내 단지 보기" data-a="todanji">내 단지 보기</button><button class="bl" data-t="홈으로" data-a="tohome">홈으로</button>`}</div>`};
-S.danji=()=>{const ms=st.season==='겨울'?st.mine:[];const nc=st.colors.length;
-  return `<div class="uscr grad" data-scr>${snow}${pad}
-  <div class="dh"><h2 data-t="'내 단지' 제목">내 단지</h2><button class="alb" data-t="알림 버튼(${st.alarmOff?'꺼짐':st.alarm})" data-a="sheet:alarm">${I.bell}알림 · ${st.alarmOff?'꺼짐':st.alarm}</button></div>
-  <div class="seas">${['봄','여름','가을','겨울'].map(s=>`<button class="${st.season===s?'on':''}" data-t="계절 '${s}'" data-a="season:${s}">${s==='겨울'?'겨울 · 지금':s}</button>`).join('')}</div>
-  ${st.season==='겨울'?`<button class="ucol" data-t="찾은 색 카드" data-a="go:colors"><span class="dots">${nc?st.colors.map(c=>`<i style="background:${CDOT[c[1]]}"></i>`).join(''):'<i style="background:#4e5968"></i><i style="background:#b0b8c1"></i>'}</span><b>찾은 색 ${nc}개</b><span class="all">전체 보기 ›</span></button>`:''}
+S.danji=()=>{const W=st.season==='겨울';const ms=W?st.mine:[];const nc=W?st.colors.length:0;
+  return `<div class="uscr ubg dj" data-scr>${pad}
+  <div class="dcon"><div class="dh"><h2 data-t="'내 단지' 제목">내 단지</h2><button class="alb" data-t="알림 버튼(${st.alarmOff?'꺼짐':st.alarm})" data-a="sheet:alarm">${DI.alarm}<span>알림 · ${st.alarmOff?'꺼짐':st.alarm}</span></button></div>
+  <div class="seas">${['봄','여름','가을','겨울'].map(s=>`<button class="${st.season===s?'on':''}" data-t="계절 '${s}'" data-a="season:${s}"><span>${s==='겨울'?'겨울 · 지금':s}</span></button>`).join('')}</div>
+  <div class="ucolw"><button class="ucol" data-t="찾은 색 카드${W?'':'('+st.season+')'}" ${W?'data-a="go:colors"':''}><span class="dots">${nc?st.colors.map(c=>`<i style="background:${CDOT[c[1]]}"></i>`).join(''):'<i style="background:#4e5968"></i><i style="background:#b0b8c1"></i>'}</span><b>찾은 색 ${nc}개</b><span class="all">전체 보기${DI.arr}</span></button></div></div>
   ${ms.length?`<div class="dg">${ms.map(m=>`<button class="dc" data-t="내 기록 카드 '${esc(m.t||m.date)}'" data-a="mine:${m.id}" style="background-image:url('${IMG+m.img}')"><span class="bd">${m.pub?'공개':'비공개'}</span><span class="dt">${esc(m.date)}</span><span class="lk">${I.heart(false,'#fff',13)}${m.like}</span></button>`).join('')}</div>`
-  :st.season==='겨울'?`<div class="uempty dj" data-t="빈 단지 안내"><img class="ill" src="${IMG}ill_jar.png" alt="" style="width:190px"><b>아직 올린 사진이 없어요</b><p>나의 겨울 단지에<br>첫 사진을 올려봐요</p><button data-t="첫 사진 올리기" data-a="upchip:">첫 사진 올리기</button></div>`
-  :`<p class="unone" data-t="빈 계절">${esc(st.season)}에 남긴 기록이 아직 없어요</p>`}
+  :`<div class="dempty" data-t="빈 단지 안내(${st.season})"><div class="in"><img class="ill" src="${IMG}ill_jar.png" alt=""><div class="tx"><b>아직 올린 사진이 없어요</b><p>나의 ${esc(st.season)} 단지에<br>첫 사진을 올려봐요</p></div></div><button class="bw" data-t="첫 사진 올리기(${st.season})" data-a="upchip:">첫 사진 올리기</button></div>`}
   <div style="height:calc(130px + var(--sab))"></div></div>`+tabbar('danji')};
 S.mine=()=>{const m=st.mine.find(x=>x.id===st.cur);if(!m)return S.danji();
-  return `<div class="uscr grad" data-scr>${snow}${pad}
-  <div class="lh"><button data-t="내 기록 뒤로(원 화살표)" data-a="back">${I.lc}</button><div class="nm"><b>${ME}</b><span>${m.fresh?'방금 전':'30분 전'}</span></div><button class="mo ${st.pop==='mm'?'op':''}" data-t="내 기록 더보기(···)" data-a="pop:mm">${I.dotsg}</button></div>
-  ${st.pop==='mm'?`<div class="umenu" style="top:calc(98px + var(--sat))"><button data-t="'수정하기'" data-a="edit">수정하기</button><button data-t="'삭제하기'" data-a="sheet:del">삭제하기</button></div>`:''}
+  return `<div class="uscr ubg dt mn" data-scr>${pad}
+  <div class="lh"><button data-t="내 기록 뒤로(원 화살표)" data-a="back">${DI.lc2}</button><div class="nm"><b>${ME}</b><span>${m.fresh?'방금 전':'30분 전'}</span></div><button class="mo ${st.pop==='mm'?'op':''}" data-t="내 기록 더보기(···)" data-a="pop:mm">${DI.tdots}</button></div>
+  ${st.pop==='mm'?`<div class="umenu"><button data-t="'수정하기'" data-a="edit">수정하기</button><button data-t="'삭제하기'" data-a="sheet:del">삭제하기</button></div>`:''}
   <div class="bigph" data-t="내 기록 사진" style="background-image:url('${IMG+(m.big||m.img)}')">${pubBadge(m.pub)}</div>
-  ${metaCard(m.lab,m.t,`<div class="ulike" data-t="내 기록 좋아요 수"><span class="hi">${I.heart(false,'#4e5968',18)}</span>${m.like}</div>`)}
+  ${metaCard(m.lab,m.t,`<div class="ulike" data-t="내 기록 좋아요 수"><span class="hi">${DI.hrtOff}</span>${m.like}</div>`)}
   <div style="height:80px"></div></div>`};
 S.edit=()=>{const u=st.up,m=st.mine.find(x=>x.id===st.cur);
   return `<div class="uscr" data-scr>${pad}
@@ -495,9 +580,13 @@ const api={
     api.close(false);
     hooks={tap:h.tap||(()=>{}),close:h.close||(()=>{})};pid=p.id;
     st=fresh();
-    root=document.createElement('div');root.id='utp';
-    const mount=h.mount||document.body;if(h.mount)root.classList.add('in');
-    mount.appendChild(root);
+    outer=document.createElement('div');outer.id='utp';
+    root=document.createElement('div');root.className='utpz';outer.appendChild(root);
+    const mount=h.mount||document.body;if(h.mount)outer.classList.add('in');
+    mount.appendChild(outer);
+    fitF=()=>{if(!outer)return;const W=outer.clientWidth||375,H=outer.clientHeight||812;let z=W/375,ml=0;if(H/z<600){z=H/812;ml=(W-375*z)/2/z}
+      root.style.zoom=z;root.style.width='375px';root.style.height=(H/z)+'px';root.style.marginLeft=ml+'px'};
+    fitF();window.addEventListener('resize',fitF);
     root.addEventListener('click',onClick);root.addEventListener('input',onInput);
     try{hooks.tap('프로토타입 시작')}catch(e){}
     draw(true);
@@ -505,7 +594,7 @@ const api={
   },
   close(byUser){
     if(!root)return;
-    root.remove();root=null;clearTimeout(tipT);clearTimeout(toastT);
+    window.removeEventListener('resize',fitF);outer.remove();outer=null;root=null;clearTimeout(tipT);clearTimeout(toastT);
     if(document.fullscreenElement&&document.exitFullscreen)document.exitFullscreen().catch(()=>{});
     const h=hooks;hooks=null;const was=pid;pid=null;
     if(h&&h.close)h.close(!!byUser,was);
