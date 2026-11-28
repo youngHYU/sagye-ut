@@ -375,7 +375,7 @@ const CSS=`
 `;
 
 /* ---------- state ---------- */
-let outer=null,root=null,fitF=null,st=null,hooks=null,pid=null,tipT=null,toastT=null;
+let outer=null,root=null,fitF=null,vvF=null,st=null,hooks=null,pid=null,tipT=null,toastT=null;
 const fresh=()=>({stack:['home'],sheet:null,pop:null,sort:'인기순',feed:FEED0.map((x,i)=>({...x,rk:i,ago:[95,30,140,12,60,200,45,8][i],like:x.like-(x.liked0?1:0),liked:!!x.liked0})),pickI:0,spI:0,
   up:null,mine:[{id:'m1',img:'snowman.jpg',big:'snowman_b.jpg',date:'11.26',lab:'그 밖의 겨울',t:'올해 첫 눈사람',pub:false,like:0},{id:'m2',img:'trees.jpg',big:'trees_b.jpg',date:'11.26',lab:'그 밖의 겨울',t:'밤 산책',pub:true,like:22},{id:'m3',img:'xmas.jpg',big:'xmas_b.jpg',date:'11.25',lab:'그 밖의 겨울',t:'리스 만들기',pub:true,like:12}],
   cur:null,season:'겨울',alarm:'낮 12시',alarmSel:'낮 12시',alarmOff:false,askAlarm:true,tipShown:false,reported:{},colors:[['파랑','b','11월 셋째 주']]});
@@ -601,6 +601,9 @@ const api={
     let z0=0;fitF=()=>{if(!outer)return;const W=outer.clientWidth||375,H=outer.clientHeight||812;let z=W/375,ml=0;if(W>560){if(!z0)z0=Math.min(W/375,H/812);z=z0;ml=(W-375*z)/2/z}
       root.style.zoom=z;root.style.width='375px';root.style.height=(H/z)+'px';root.style.marginLeft=ml+'px'};
     fitF();window.addEventListener('resize',fitF);
+    vvF=()=>{const v=window.visualViewport;if(!outer||!v||h.mount)return;outer.style.top=v.offsetTop+'px';outer.style.height=v.height+'px';outer.style.bottom='auto';fitF()};
+    if(window.visualViewport&&!h.mount){visualViewport.addEventListener('resize',vvF);visualViewport.addEventListener('scroll',vvF);vvF()}
+    root.addEventListener('focusin',ev=>{const i=ev.target;if(!i.matches||!i.matches('input'))return;const go=()=>{try{i.scrollIntoView({block:'center',behavior:'smooth'})}catch(e){}};setTimeout(go,300);setTimeout(go,700)});
     root.addEventListener('click',onClick);root.addEventListener('input',onInput);
     try{hooks.tap('프로토타입 시작')}catch(e){}
     draw(true);
@@ -608,7 +611,7 @@ const api={
   },
   close(byUser){
     if(!root)return;
-    window.removeEventListener('resize',fitF);outer.remove();outer=null;root=null;clearTimeout(tipT);clearTimeout(toastT);
+    window.removeEventListener('resize',fitF);if(window.visualViewport&&vvF){visualViewport.removeEventListener('resize',vvF);visualViewport.removeEventListener('scroll',vvF)}outer.remove();outer=null;root=null;clearTimeout(tipT);clearTimeout(toastT);
     if(document.fullscreenElement&&document.exitFullscreen)document.exitFullscreen().catch(()=>{});
     const h=hooks;hooks=null;const was=pid;pid=null;
     if(h&&h.close)h.close(!!byUser,was);
