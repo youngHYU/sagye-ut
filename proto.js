@@ -348,7 +348,7 @@ const CSS=`
 #utp .dj .seas span{position:relative}
 #utp .dj .ucolw{padding:0 20px}
 #utp .dj .ucol{width:100%;margin:0;height:auto;display:flex;align-items:center;gap:12px;padding:14px 14px 14px 16px;border-radius:16px;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.08)}
-#utp .dj .ucol .dots{display:flex;width:48px;height:28px;margin:0;flex:none}
+#utp .dj .ucol .dots{display:flex;width:auto;height:28px;margin:0;flex:none}
 #utp .dj .ucol .dots i{width:28px;height:28px;border-radius:14px;margin-right:-8px;box-shadow:none}
 #utp .dj .ucol b{flex:1;margin:0;text-align:left;font-size:17px;font-weight:700;line-height:1.35;color:rgba(0,12,30,.8)}
 #utp .dj .ucol .all{display:flex;align-items:center;gap:2px;margin:0;font-size:13px;line-height:1.5;color:#6b7684}
@@ -370,6 +370,8 @@ const CSS=`
 #utp .utab .cic svg{position:static}
 #utp .tf{background:#f9fafb;border:1px solid rgba(0,27,55,.1)!important}
 #utp .tf.on,#utp .tf:focus-within{border-color:#4c87f5!important}
+
+#utp .tf input{font-size:16px;width:106.67%;transform:scale(.9375);transform-origin:0 50%}
 `;
 
 /* ---------- state ---------- */
@@ -447,11 +449,15 @@ S.done=()=>{const r=st.last;return `<div class="uscr" data-scr style="background
   <p>${r.chip===0&&r.firstColor?`오늘 <em>주황</em>을 찾았어요<br>이번 겨울에 찾은 색은 ${st.colors.length}개예요!`:(r.pub?'다른 사람들도 볼 수 있게 올렸어요':'나만 볼 수 있게 저장했어요')}</p></div>
   <div style="height:200px"></div></div>
   <div class="ctaw">${r.pub?`<button class="bp" data-t="다른 사람들 사진 보기" data-a="tohome">다른 사람들 사진 보기</button><button class="bl" data-t="내 단지 보기" data-a="todanji">내 단지 보기</button>`:`<button class="bp" data-t="내 단지 보기" data-a="todanji">내 단지 보기</button><button class="bl" data-t="홈으로" data-a="tohome">홈으로</button>`}</div>`};
+const dotsSvg=nc=>{const C={b:'<circle cx="CX" cy="14" r="15.5" fill="#1F99FF" stroke-width="3" stroke="white"/>',o:'<circle cx="CX" cy="14" r="15" fill="#FF7007" fill-opacity="0.85" stroke-width="2" stroke="white"/>'};
+  let body;if(!nc)body='<circle cx="14" cy="14" r="15" fill="#4E5968" stroke-width="2" stroke="white"/><circle cx="34" cy="14" r="15.5" fill="#B0B8C1" stroke-width="3" stroke="white"/>';
+  else{const ks=st.colors.map(c=>c[1]);const ord=[...ks.filter(k=>k!=='b'),...ks.filter(k=>k==='b')];body=ord.map((k,i)=>C[k].replace('CX',14+i*20)).join('')}
+  const w=nc>1?48:(nc?28:48);return `<svg width="${w}" height="28" viewBox="0 0 ${w} 28" fill="none" xmlns="http://www.w3.org/2000/svg"><clipPath id="utpcm${nc}"><rect width="${w}" height="28"/></clipPath><g clip-path="url(#utpcm${nc})">${body}</g></svg>`};
 S.danji=()=>{const W=st.season==='겨울';const ms=W?st.mine:[];const nc=W?st.colors.length:0;
   return `<div class="uscr ubg dj" data-scr>${pad}
   <div class="dcon"><div class="dh"><h2 data-t="'내 단지' 제목">내 단지</h2><button class="alb" data-t="알림 버튼(${st.alarmOff?'꺼짐':st.alarm})" data-a="sheet:alarm">${DI.alarm}<span>알림 · ${st.alarmOff?'꺼짐':st.alarm}</span></button></div>
   <div class="seas">${['봄','여름','가을','겨울'].map(s=>`<button class="${st.season===s?'on':''}" data-t="계절 '${s}'" data-a="season:${s}"><span>${s==='겨울'?'겨울 · 지금':s}</span></button>`).join('')}</div>
-  <div class="ucolw"><button class="ucol" data-t="찾은 색 카드${W?'':'('+st.season+')'}" ${W?'data-a="go:colors"':''}><span class="dots"><svg width="48" height="28" viewBox="0 0 48 28" fill="none" xmlns="http://www.w3.org/2000/svg"><clipPath id="utpcm"><rect width="48" height="28"/></clipPath><g clip-path="url(#utpcm)"><circle cx="14" cy="14" r="15" fill="#FF7007" fill-opacity="0.85" stroke-width="2" stroke="white"/><circle cx="34" cy="14" r="15.5" fill="#1F99FF" stroke-width="3" stroke="white"/></g></svg></span><b>찾은 색 ${nc}개</b><span class="all">전체 보기${DI.arr}</span></button></div></div>
+  <div class="ucolw"><button class="ucol" data-t="찾은 색 카드${W?'':'('+st.season+')'}" ${W?'data-a="go:colors"':''}><span class="dots">${dotsSvg(nc)}</span><b>찾은 색 ${nc}개</b><span class="all">전체 보기${DI.arr}</span></button></div></div>
   ${ms.length?`<div class="dg">${ms.map(m=>`<button class="dc" data-t="내 기록 카드 '${esc(m.t||m.date)}'" data-a="mine:${m.id}" style="background-image:url('${IMG+m.img}')"><span class="bd">${m.pub?'공개':'비공개'}</span><span class="dt">${esc(m.date)}</span><span class="lk">${I.heart(false,'#fff',13)}${m.like}</span></button>`).join('')}</div>`
   :`<div class="dempty" data-t="빈 단지 안내(${st.season})"><div class="in"><img class="ill" src="${IMG}ill_jar.png" alt=""><div class="tx"><b>아직 올린 사진이 없어요</b><p>나의 ${esc(st.season)} 단지에<br>첫 사진을 올려봐요</p></div></div><button class="bw" data-t="첫 사진 올리기(${st.season})" data-a="upchip:">첫 사진 올리기</button></div>`}
   <div style="height:calc(130px + var(--sab))"></div></div>`+tabbar('danji')};
@@ -592,7 +598,7 @@ const api={
     root=document.createElement('div');root.className='utpz';outer.appendChild(root);
     const mount=h.mount||document.body;if(h.mount)outer.classList.add('in');
     mount.appendChild(outer);
-    fitF=()=>{if(!outer)return;const W=outer.clientWidth||375,H=outer.clientHeight||812;let z=W/375,ml=0;if(H/z<600){z=H/812;ml=(W-375*z)/2/z}
+    let z0=0;fitF=()=>{if(!outer)return;const W=outer.clientWidth||375,H=outer.clientHeight||812;let z=W/375,ml=0;if(W>560){if(!z0)z0=Math.min(W/375,H/812);z=z0;ml=(W-375*z)/2/z}
       root.style.zoom=z;root.style.width='375px';root.style.height=(H/z)+'px';root.style.marginLeft=ml+'px'};
     fitF();window.addEventListener('resize',fitF);
     root.addEventListener('click',onClick);root.addEventListener('input',onInput);
