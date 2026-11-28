@@ -362,6 +362,14 @@ const CSS=`
 #utp .dempty .tx b{font-size:17px;font-weight:500;line-height:1.5;color:#000}
 #utp .dempty .tx p{font-size:13px;font-weight:500;line-height:1.35;color:rgba(3,24,50,.46)}
 #utp .dempty .bw{width:153.5px;min-height:56px;padding:2px 28px;border-radius:16px;background:rgba(7,25,76,.05);opacity:.9;font-size:17px;font-weight:600;line-height:1.252;color:rgba(3,18,40,.7);text-align:center;white-space:nowrap}
+
+/* 11/28 3차 */
+#utp .dj .ucol .dots svg{display:block}
+#utp .utab .camb{padding:0}
+#utp .utab .cic{display:flex;align-items:center;justify-content:center}
+#utp .utab .cic svg{position:static}
+#utp .tf{background:#f9fafb;border:1px solid rgba(0,27,55,.1)!important}
+#utp .tf.on,#utp .tf:focus-within{border-color:#4c87f5!important}
 `;
 
 /* ---------- state ---------- */
@@ -429,7 +437,7 @@ S.up=()=>{const u=st.up;const ok=u.photo&&u.chip!=null;
   <button class="pbox ${u.photo?'has':''}" data-t="${u.photo?'고른 사진(바꾸기)':'사진 고르기'}" data-a="sheet:pick" style="${u.photo?`background-image:url('${IMG+u.photo}')`:''}">${u.photo?'':I.plus+'사진 고르기'}</button>
   <div class="fl"><div class="lb">어떤 사진인가요?</div><div class="hp">이번 주 찾을 색과 오늘 해 볼 것만 고를 수 있어요</div>
   <div class="chr">${CHIPS.map((c,i)=>`<button class="bm ${u.chip===i?'on':''}" data-t="사진 종류 '${c}'" data-a="chip:${i}">${c}</button>`).join('')}</div></div>
-  <div class="fl" style="padding-top:0"><div class="lb">한 줄 남기기 (선택)</div><div class="tf"><input maxlength="40" data-t="한 줄 남기기 입력칸" data-in="text" value="${esc(u.text)}" placeholder="이 순간을 한 줄로 남겨 보세요"></div></div>
+  <div class="fl" style="padding-top:0"><div class="lb">한 줄 남기기 (선택)</div><div class="tf${u.text?' on':''}"><input maxlength="40" data-t="한 줄 남기기 입력칸" data-in="text" value="${esc(u.text)}" placeholder="이 순간을 한 줄로 남겨 보세요"></div></div>
   <div class="fl" style="padding-top:0"><div class="lb">누가 볼 수 있나요?</div><div class="hp">언제든 내 단지에서 공개 범위를 바꿀 수 있어요</div>${visBtns(u)}</div>
   <div style="height:calc(150px + var(--sab))"></div></div>
   ${(st.tipUntil||0)>Date.now()?`<div class="utip" data-t="안내 말풍선">지금 계절에 맞춰 단지가 정해져요</div>`:''}
@@ -443,7 +451,7 @@ S.danji=()=>{const W=st.season==='겨울';const ms=W?st.mine:[];const nc=W?st.co
   return `<div class="uscr ubg dj" data-scr>${pad}
   <div class="dcon"><div class="dh"><h2 data-t="'내 단지' 제목">내 단지</h2><button class="alb" data-t="알림 버튼(${st.alarmOff?'꺼짐':st.alarm})" data-a="sheet:alarm">${DI.alarm}<span>알림 · ${st.alarmOff?'꺼짐':st.alarm}</span></button></div>
   <div class="seas">${['봄','여름','가을','겨울'].map(s=>`<button class="${st.season===s?'on':''}" data-t="계절 '${s}'" data-a="season:${s}"><span>${s==='겨울'?'겨울 · 지금':s}</span></button>`).join('')}</div>
-  <div class="ucolw"><button class="ucol" data-t="찾은 색 카드${W?'':'('+st.season+')'}" ${W?'data-a="go:colors"':''}><span class="dots">${nc?st.colors.map(c=>`<i style="background:${CDOT[c[1]]}"></i>`).join(''):'<i style="background:#4e5968"></i><i style="background:#b0b8c1"></i>'}</span><b>찾은 색 ${nc}개</b><span class="all">전체 보기${DI.arr}</span></button></div></div>
+  <div class="ucolw"><button class="ucol" data-t="찾은 색 카드${W?'':'('+st.season+')'}" ${W?'data-a="go:colors"':''}><span class="dots"><svg width="48" height="28" viewBox="0 0 48 28" fill="none" xmlns="http://www.w3.org/2000/svg"><clipPath id="utpcm"><rect width="48" height="28"/></clipPath><g clip-path="url(#utpcm)"><circle cx="14" cy="14" r="15" fill="#FF7007" fill-opacity="0.85" stroke-width="2" stroke="white"/><circle cx="34" cy="14" r="15.5" fill="#1F99FF" stroke-width="3" stroke="white"/></g></svg></span><b>찾은 색 ${nc}개</b><span class="all">전체 보기${DI.arr}</span></button></div></div>
   ${ms.length?`<div class="dg">${ms.map(m=>`<button class="dc" data-t="내 기록 카드 '${esc(m.t||m.date)}'" data-a="mine:${m.id}" style="background-image:url('${IMG+m.img}')"><span class="bd">${m.pub?'공개':'비공개'}</span><span class="dt">${esc(m.date)}</span><span class="lk">${I.heart(false,'#fff',13)}${m.like}</span></button>`).join('')}</div>`
   :`<div class="dempty" data-t="빈 단지 안내(${st.season})"><div class="in"><img class="ill" src="${IMG}ill_jar.png" alt=""><div class="tx"><b>아직 올린 사진이 없어요</b><p>나의 ${esc(st.season)} 단지에<br>첫 사진을 올려봐요</p></div></div><button class="bw" data-t="첫 사진 올리기(${st.season})" data-a="upchip:">첫 사진 올리기</button></div>`}
   <div style="height:calc(130px + var(--sab))"></div></div>`+tabbar('danji')};
@@ -459,7 +467,7 @@ S.edit=()=>{const u=st.up,m=st.mine.find(x=>x.id===st.cur);
   <div class="uh"><button data-t="수정 닫기(✕)" data-a="back">${I.xc}</button><h3>기록 수정하기</h3></div>
   <div class="pbox has" data-t="수정 화면 사진" style="background-image:url('${IMG+(m.big||u.photo)}')"></div>
   <div class="fl"><div class="lb">어떤 사진인가요?</div><div class="hp">업로드 한 뒤에는 수정할 수 없어요</div><div class="chr"><span class="bm fix" data-t="사진 종류(고정)">${esc(m.lab==='주황'?'주황찾기':m.lab)}</span></div></div>
-  <div class="fl" style="padding-top:0"><div class="lb">한 줄 남기기 (선택)</div><div class="tf"><input maxlength="40" data-t="수정 한 줄 입력칸" data-in="text" value="${esc(u.text)}" placeholder="이 순간을 한 줄로 남겨 보세요"></div></div>
+  <div class="fl" style="padding-top:0"><div class="lb">한 줄 남기기 (선택)</div><div class="tf${u.text?' on':''}"><input maxlength="40" data-t="수정 한 줄 입력칸" data-in="text" value="${esc(u.text)}" placeholder="이 순간을 한 줄로 남겨 보세요"></div></div>
   <div class="fl" style="padding-top:0"><div class="lb">누가 볼 수 있나요?</div><div class="hp">언제든 내 단지에서 공개 범위를 바꿀 수 있어요</div>${visBtns(u)}</div>
   <div style="height:calc(150px + var(--sab))"></div></div>
   <div class="ucta"><button class="bp" data-t="수정 완료" data-a="editsave">수정 완료</button></div>`};
@@ -562,7 +570,7 @@ function onClick(ev){
   ev.preventDefault();
   act(a.dataset.a);
 }
-function onInput(ev){const i=ev.target;if(!i.dataset.in||!st.up)return;st.up.text=i.value;st.up.dirty=true;}
+function onInput(ev){const i=ev.target;if(!i.dataset.in||!st.up)return;st.up.text=i.value;st.up.dirty=true;const b=i.closest('.tf');if(b)b.classList.toggle('on',!!i.value);}
 
 const api={
   guide:'처음 들어왔다고 생각하고 마음대로 써 보세요.',
