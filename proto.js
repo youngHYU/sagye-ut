@@ -18,8 +18,8 @@ const I={
  cam:'<svg width="27" height="27" viewBox="0 0 24 24" fill="none"><path d="M8.6 4.5h6.8l1.4 2.2H20a1.6 1.6 0 0 1 1.6 1.6v10.1A1.6 1.6 0 0 1 20 20H4a1.6 1.6 0 0 1-1.6-1.6V8.3A1.6 1.6 0 0 1 4 6.7h3.2z" fill="#fff"/><circle cx="12" cy="13.2" r="3.6" fill="#5b8ef0"/><circle cx="12" cy="13.2" r="2" fill="#fff"/></svg>',
  home:'<svg width="24" height="24" viewBox="0 0 24 24"><path d="M3.5 10.4 12 3.6l8.5 6.8V20a1 1 0 0 1-1 1h-5v-6h-5v6h-5a1 1 0 0 1-1-1z" fill="#333d4b"/></svg>',
  homeo:'<svg width="24" height="24" viewBox="0 0 24 24"><path d="M3.5 10.4 12 3.6l8.5 6.8V20a1 1 0 0 1-1 1h-5v-6h-5v6h-5a1 1 0 0 1-1-1z" fill="#b0b8c1"/></svg>',
- jar:'<svg width="24" height="24" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="3" rx="1" fill="#b0b8c1"/><path d="M6.5 7h11c.6 1 1.5 2.4 1.5 4.6V19a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 5 19v-7.4C5 9.4 5.9 8 6.5 7z" fill="#b0b8c1"/></svg>',
- jaron:'<svg width="24" height="24" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="3" rx="1" fill="#333d4b"/><path d="M6.5 7h11c.6 1 1.5 2.4 1.5 4.6V19a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 5 19v-7.4C5 9.4 5.9 8 6.5 7z" fill="#333d4b"/></svg>',
+ jar:'<svg width="24" height="24" viewBox="0 0 24 24"><path d="M8.2 3.2c1.6-1 6-1 7.6 0 .5.3.4 1-.2 1.1-2.4.5-4.8.5-7.2 0-.6-.1-.7-.8-.2-1.1z" fill="#b0b8c1"/><path d="M12 5.6c5 0 8.2 2.6 8.2 7.6 0 5.3-3.3 8.3-8.2 8.3s-8.2-3-8.2-8.3c0-5 3.2-7.6 8.2-7.6z" fill="#b0b8c1"/></svg>',
+ jaron:'<svg width="24" height="24" viewBox="0 0 24 24"><path d="M8.2 3.2c1.6-1 6-1 7.6 0 .5.3.4 1-.2 1.1-2.4.5-4.8.5-7.2 0-.6-.1-.7-.8-.2-1.1z" fill="#333d4b"/><path d="M12 5.6c5 0 8.2 2.6 8.2 7.6 0 5.3-3.3 8.3-8.2 8.3s-8.2-3-8.2-8.3c0-5 3.2-7.6 8.2-7.6z" fill="#333d4b"/></svg>',
  heart:(on,c='#b0b8c1',s=12)=>on?`<svg width="${s}" height="${s}" viewBox="0 0 24 24"><path d="M12 21s-8.5-5.3-8.5-11.2A4.8 4.8 0 0 1 12 6.6a4.8 4.8 0 0 1 8.5 3.2C20.5 15.7 12 21 12 21z" fill="#f04452"/></svg>`:`<svg width="${s}" height="${s}" viewBox="0 0 24 24"><path d="M12 20s-8-5-8-10.6A4.5 4.5 0 0 1 12 6.6a4.5 4.5 0 0 1 8 2.8C20 15 12 20 12 20z" fill="none" stroke="${c}" stroke-width="2.2"/></svg>`,
  heartf:(c='#4e5968',s=16)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24"><path d="M12 21s-8.5-5.3-8.5-11.2A4.8 4.8 0 0 1 12 6.6a4.8 4.8 0 0 1 8.5 3.2C20.5 15.7 12 21 12 21z" fill="${c}"/></svg>`,
  chev:'<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="m4 6 4 4 4-4" stroke="#8b95a1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
@@ -36,20 +36,26 @@ const I={
  pcam:'<svg width="22" height="22" viewBox="0 0 24 24"><path d="M8.6 5h6.8l1.4 2.1H20a1.5 1.5 0 0 1 1.5 1.5v9.6A1.5 1.5 0 0 1 20 19.7H4a1.5 1.5 0 0 1-1.5-1.5V8.6A1.5 1.5 0 0 1 4 7.1h3.2z" fill="#b0b8c1"/><circle cx="12" cy="13" r="3.2" fill="#f2f4f6"/></svg>',
  pdoc:'<svg width="22" height="22" viewBox="0 0 24 24"><path d="M6 2.8h8.2L19 7.6V20a1.4 1.4 0 0 1-1.4 1.4H6A1.4 1.4 0 0 1 4.6 20V4.2A1.4 1.4 0 0 1 6 2.8z" fill="#b0b8c1"/><path d="M8 11h8M8 14.5h8M8 18h5" stroke="#f2f4f6" stroke-width="1.6" stroke-linecap="round"/></svg>',
  plock:'<svg width="22" height="22" viewBox="0 0 24 24"><rect x="5" y="10.4" width="14" height="10.6" rx="2.4" fill="#b0b8c1"/><path d="M8.2 10.6V8a3.8 3.8 0 0 1 7.6 0v2.6" fill="none" stroke="#b0b8c1" stroke-width="2.2"/></svg>',
+ siren:'<svg width="20" height="20" viewBox="0 0 20 20"><path d="M5.2 15V10a4.8 4.8 0 0 1 9.6 0v5z" fill="#b0b8c1"/><rect x="3.5" y="15" width="13" height="2.6" rx="1" fill="#b0b8c1"/><path d="M10 2v1.6M3.4 4.6l1.1 1.1M16.6 4.6l-1.1 1.1" stroke="#b0b8c1" stroke-width="1.5" stroke-linecap="round"/><rect x="9.2" y="9.6" width="1.6" height="3.6" rx=".8" fill="#fff"/></svg>',
+ bell:'<svg width="16" height="16" viewBox="0 0 20 20"><path d="M10 2.5a5 5 0 0 0-5 5v3.6L3.6 14h12.8L15 11.1V7.5a5 5 0 0 0-5-5z" fill="#4e5968"/><path d="M8 15.6a2 2 0 0 0 4 0z" fill="#4e5968"/></svg>',
+ cpTea:'<svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="#3182f6"/><path d="M8 4.6v6.8M4.6 8h6.8" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>',
+ cpOrg:'<span style="width:14px;height:14px;border-radius:7px;background:conic-gradient(#ff6b6b,#ffb03a,#ffe14d,#5fd17a,#4aa8ff,#9a7bff,#ff6b6b);display:inline-block;-webkit-mask:radial-gradient(circle,transparent 2.4px,#000 2.6px);mask:radial-gradient(circle,transparent 2.4px,#000 2.6px)"></span>',
+ cpEtc:'<svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="#a58bf0"/><path d="M8 3.6v8.8M4.2 5.8l7.6 4.4M4.2 10.2l7.6-4.4" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/></svg>',
  saved:'<svg width="56" height="56" viewBox="0 0 56 56"><rect x="17" y="12" width="26" height="30" rx="4" transform="rotate(16 30 27)" fill="#c9dcff"/><rect x="13" y="10" width="26" height="30" rx="4" transform="rotate(8 26 25)" fill="#dfe3e8"/><path d="M22 34l4 4 9-10" fill="none" stroke="#3182f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 };
 
 /* ---------- data ---------- */
 const FEED0=[
- {id:'f1',t:'추워도 못참지',by:'축하하는 라이언',img:'snowman.jpg',lab:'따뜻한 차',like:24},
- {id:'f2',t:'크리스마스',by:'티비 보는 라이언',img:'xmas.jpg',lab:'따뜻한 차',like:18},
- {id:'f3',t:'눈',by:'으쓱으쓱 어피치',img:'boots_s.jpg',big:'boots.jpg',lab:'주황',like:89},
- {id:'f4',t:'보니밤 도전',by:'행복한 춘식이',img:'trees.jpg',lab:'그 밖의 겨울',like:12},
- {id:'f5',t:'눈 오는 날',by:'인사하는 어피치',img:'boots_s.jpg',big:'boots.jpg',lab:'따뜻한 차',like:9},
- {id:'f6',t:'밤 산책',by:'티비 보는 라이언',img:'trees.jpg',lab:'그 밖의 겨울',like:7},
- {id:'f7',t:'눈이 언제쯤 싫어질까',by:'축하하는 라이언',img:'boots_s.jpg',big:'boots.jpg',lab:'그 밖의 겨울',like:5},
- {id:'f8',t:'첫눈',by:'행복한 춘식이',img:'snowman.jpg',lab:'따뜻한 차',like:3}
+ {id:'f1',t:'생강차',by:'축하하는 라이언',img:'ginger.jpg',lab:'따뜻한 차',like:24},
+ {id:'f2',t:'겨울은 핫초코의 계절',by:'티비 보는 라이언',img:'choco.jpg',lab:'따뜻한 차',like:89,liked0:1},
+ {id:'f3',t:'요거꿀자몽~~',by:'으쓱으쓱 어피치',img:'grapefruit.jpg',lab:'주황',like:41,liked0:1},
+ {id:'f4',t:'수제 뱅쇼',by:'행복한 춘식이',img:'vinshot.jpg',lab:'따뜻한 차',like:37},
+ {id:'f5',t:'얼려 먹는 귤',by:'축하하는 라이언',img:'gyul.jpg',lab:'주황',like:89,liked0:1},
+ {id:'f6',t:'첫눈',by:'티비 보는 라이언',img:'boots_s.jpg',big:'boots.jpg',lab:'그 밖의 겨울',like:15},
+ {id:'f7',t:'첫눈온다',by:'티비 보는 라이언',img:'snowfall.jpg',lab:'그 밖의 겨울',like:89},
+ {id:'f8',t:'홍시',by:'축하하는 라이언',img:'hongsi.jpg',lab:'주황',like:9}
 ];
+const ME='인사하는 어피치';
 const PICK=[{t:'1분만에 귤청 만들기',src:'유튜브 · 1분 요리만찬',pf:'유튜브'},{t:'서울 실내 크리스마스 명소 4곳',src:'유튜브 · 우주트래블로그',pf:'유튜브'}];
 const SPECIAL=[{t:'1분만에 귤청 만들기',src:'유튜브 · 1분 요리만찬',pf:'유튜브'},{t:'겨울 집콕 귤 레시피 3가지',src:'인스타그램 · 오늘의 귤',pf:'인스타그램'},{t:'붕어빵 지도 만드는 법',src:'유튜브 · 동네탐방',pf:'유튜브'}];
 const CHIPS=['주황찾기','따뜻한 차','그 밖의 겨울'];
@@ -217,13 +223,66 @@ const CSS=`
 #utp .umenu{position:absolute;z-index:30;right:24px;background:#fff;border-radius:16px;box-shadow:0 6px 24px rgba(0,0,0,.14);padding:8px;min-width:150px}
 #utp .umenu button{display:block;width:100%;padding:12px 14px;font-size:16px;font-weight:500;color:#333d4b;border-radius:10px}
 #utp .utoast{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(110px + var(--sab));z-index:60;background:rgba(25,31,40,.88);color:#fff;font-size:14px;font-weight:500;border-radius:14px;padding:12px 16px;white-space:nowrap;pointer-events:none;animation:utpUp .2s ease-out}
+
+/* ---- final (11/28) ---- */
+#utp .uhero{background:radial-gradient(55% 75% at 85% 5%,rgba(201,195,255,.9),rgba(201,195,255,0)),linear-gradient(180deg,#b5d3ff 0%,#dceaff 55%,#fff 100%)}
+#utp .uhero img{width:307px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);mask-image:linear-gradient(90deg,transparent,#000 30%)}
+#utp .utops{margin-top:-79px}
+#utp .uempty{background:rgba(255,255,255,.35)}
+#utp .uempty .ill{display:block;margin:0 auto 14px}
+#utp .uempty.dj{margin:22px 24px 0;padding:24px 16px 32px}
+#utp .uempty.dj b{font-size:17px}
+#utp .usnow{position:absolute;left:0;top:0;width:375px;height:812px;pointer-events:none;z-index:-1;overflow:hidden}
+#utp .usnow i{position:absolute;color:#d4e3fb;font-style:normal;line-height:1}
+#utp .usnow b{position:absolute;width:6px;height:6px;border-radius:3px;background:#dce8fb}
+#utp .uscr{isolation:isolate}
+#utp .lh .mo.sq{background:rgba(2,32,71,.05);border-radius:8px;width:38px;height:38px}
+#utp .bigph{box-shadow:0 2px 10px rgba(0,0,0,.05)}
+#utp .bigph .pb{background:#dae7ff;font-size:14px;padding:4px 10px 4px 8px;gap:6px;top:15px;right:15px}
+#utp .bigph .pb.off{background:rgba(0,0,0,.32);color:#fff;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-weight:600}
+#utp .umc{margin:16px 21px 0;background:rgba(255,255,255,.78);border-radius:20px;box-shadow:0 2px 14px rgba(0,27,55,.06);padding:18px 20px 12px;min-height:143px;display:flex;flex-direction:column;align-items:flex-start}
+#utp .umc .t{font-size:17px;font-weight:700;color:#191f28;line-height:1.35;margin-top:10px}
+#utp .umc .ulike{margin-top:auto;padding-top:20px;font-size:14px;color:#4e5968}
+#utp .ucp{display:inline-flex;align-items:center;gap:5px;height:26px;padding:0 10px 0 7px;border-radius:13px;font-size:13px;font-weight:600}
+#utp .ucp.tea{background:#e3efff;color:#1b64da}
+#utp .ucp.org{background:#fff;color:#4e5968;box-shadow:0 0 0 1px rgba(0,27,55,.05)}
+#utp .ucp.etc{background:#efe8ff;color:#7655d8}
+#utp .alb{display:inline-flex;align-items:center;gap:4px;background:rgba(7,25,76,.05)}
+#utp .seas button{min-height:36px;padding:0 16px}
+#utp .ucol{display:flex;align-items:center;width:calc(100% - 40px);margin:14px 20px 0;height:56px;background:#fff;border-radius:14px;box-shadow:0 2px 10px rgba(0,27,55,.06);padding:0 16px}
+#utp .ucol .dots{display:flex;margin-right:10px}
+#utp .ucol .dots i{display:block;width:26px;height:26px;border-radius:13px;margin-right:-8px;box-shadow:0 0 0 1.5px #fff}
+#utp .ucol .dots i:last-child{margin-right:0}
+#utp .ucol b{font-size:17px;font-weight:700;color:#191f28;margin-left:6px}
+#utp .ucol .all{margin-left:auto;font-size:13px;color:#6b7684}
+#utp .dg{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:22px 20px 0}
+#utp .dc{height:auto;aspect-ratio:85/110;border-radius:12px}
+#utp .dc::after{background:linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,0) 30%,rgba(0,0,0,0) 60%,rgba(0,0,0,.45))}
+#utp .dc .bd{left:8px;right:auto;top:8px;background:rgba(255,255,255,.3);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);color:#fff;font-size:12px;font-weight:600;padding:3px 8px;border-radius:9px}
+#utp .dc .dt{left:9px;bottom:8px;font-size:12px;font-weight:600}
+#utp .dc .lk{right:9px;bottom:8px;font-size:12px;gap:3px}
+#utp .udone{padding:calc(150px + var(--sat)) 24px 0}
+#utp .udone .ill{width:215px;display:block;margin:0 auto}
+#utp .udone h3{font-size:20px;margin-top:20px}
+#utp .udone p{line-height:1.6}
+#utp .udone em{font-style:normal;color:#ff8a1f;font-weight:600}
+#utp .ctaw .bl{background:#dbe8fd}
+#utp .wfnote{margin:4px 24px 20px}
+#utp .cg{gap:20px 18px;padding:0 24px 40px}
+#utp .cg i{border-radius:26px;box-shadow:0 6px 14px rgba(0,27,55,.12)}
+#utp .cg b{display:block;font-size:15px;font-weight:700;color:#333d4b;margin-top:2px}
+#utp .cg i.nx{border:1.5px dashed #d1d6db;background:#fafbfc;box-shadow:none;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:#b0b8c1}
+#utp .cg .nx b,#utp .cg .nx small{color:#b0b8c1}
+#utp .unf{display:block;width:100%;max-width:307px;margin:14px auto 0}
+#utp .usheet h4.c{text-align:center}
+#utp .usheet .sb.c{text-align:center;padding-top:14px}
 `;
 
 /* ---------- state ---------- */
 let root=null,st=null,hooks=null,pid=null,tipT=null,toastT=null;
-const fresh=()=>({stack:['home'],sheet:null,pop:null,sort:'인기순',feed:FEED0.map(x=>({...x,liked:false})),pickI:0,spI:0,
-  up:null,mine:[{id:'m1',img:'boots.jpg',date:'Nov, 18',full:'2026.11.18 · 겨울',lab:'주황',t:'눈 오는 날',pub:true,like:16}],
-  cur:null,season:'겨울',alarm:'낮 12시',alarmSel:'낮 12시',alarmOff:false,askAlarm:true,tipShown:false,reported:{},colors:[['주황','#ff7007','11월 셋째 주'],['파랑','#1e96ff','11월 둘째 주']]});
+const fresh=()=>({stack:['home'],sheet:null,pop:null,sort:'인기순',feed:FEED0.map((x,i)=>({...x,rk:i,ago:[95,30,140,12,60,200,45,8][i],like:x.like-(x.liked0?1:0),liked:!!x.liked0})),pickI:0,spI:0,
+  up:null,mine:[{id:'m1',img:'snowman.jpg',big:'snowman_b.jpg',date:'11.26',lab:'그 밖의 겨울',t:'올해 첫 눈사람',pub:false,like:0},{id:'m2',img:'trees.jpg',big:'trees_b.jpg',date:'11.26',lab:'그 밖의 겨울',t:'밤 산책',pub:true,like:22},{id:'m3',img:'xmas.jpg',big:'xmas_b.jpg',date:'11.25',lab:'그 밖의 겨울',t:'리스 만들기',pub:true,like:12}],
+  cur:null,season:'겨울',alarm:'낮 12시',alarmSel:'낮 12시',alarmOff:false,askAlarm:true,tipShown:false,reported:{},colors:[['파랑','b','11월 셋째 주']]});
 const top=()=>st.stack[st.stack.length-1];
 const go=s=>{st.stack.push(s);st.pop=null;st.sheet=null;draw(true)};
 const back=()=>{if(st.sheet){st.sheet=null;draw();return}if(st.pop){st.pop=null;draw();return}
@@ -235,7 +294,8 @@ const toast=t=>{clearTimeout(toastT);const o=root.querySelector('.utoast');if(o)
 const startUp=(chip,photo)=>{st.up={chip:chip??null,photo:photo||null,text:'',pub:true,dirty:!!photo};
   if(!st.tipShown){st.tipShown=true;st.tipUntil=Date.now()+3000;clearTimeout(tipT);tipT=setTimeout(()=>{const t=root&&root.querySelector('.utip');if(t){t.style.opacity=0;setTimeout(()=>t.remove(),300)}},3000)}
   go('up')};
-const samplePhoto=()=>['boots.jpg','xmas.jpg','snowman.jpg','trees.jpg'][Math.floor(Math.random()*4)];
+const samplePhoto=k=>k==='shoot'?'snowfall.jpg':'boots_s.jpg';
+const BIG={'boots_s.jpg':'boots.jpg'};
 
 /* ---------- pieces ---------- */
 const nav=()=>`<div class="tnav"><button class="bk" data-t="상단바 뒤로" data-a="back">${I.back}</button><div class="tt" data-t="상단바 앱 이름">${I.logo}<span>사계단지</span></div><div class="upill"><button class="ib" data-t="상단바 더보기(···)">${I.dots}</button><i></i><button class="end" data-t="상단바 종료하기" data-a="end">종료하기</button></div></div>`;
@@ -246,36 +306,41 @@ const pk=(x,i,k)=>`<div class="upk" data-t="${k==='pick'?'에디터 PICK':'에�
 
 /* ---------- screens ---------- */
 const S={};
-S.home=()=>{const fd=st.feed.filter(f=>!st.reported[f.id]);const srt=st.sort==='인기순'?[...fd].sort((a,b)=>(b.like+(b.liked?1:0))-(a.like+(a.liked?1:0))):fd;
+const CW={b:'linear-gradient(160deg,#d6e6ff,#3182f6)',o:'linear-gradient(160deg,#ffc9a0,#f26a10)'};
+const CDOT={b:'#3182f6',o:'#ff7a1a'};
+const chipPill=l=>l==='따뜻한 차'?`<span class="ucp tea">${I.cpTea}따뜻한 차</span>`:l==='주황'?`<span class="ucp org">${I.cpOrg}주황</span>`:`<span class="ucp etc">${I.cpEtc}${esc(l)}</span>`;
+const snow=`<div class="usnow" aria-hidden="true"><i style="left:330px;top:98px;font-size:18px">❄</i><i style="left:6px;top:196px;font-size:14px">❄</i><i style="left:354px;top:300px;font-size:16px">❄</i><i style="left:4px;top:440px;font-size:13px">❄</i><i style="left:312px;top:690px;font-size:20px">❄</i><i style="left:36px;top:716px;font-size:15px">❄</i><b style="left:64px;top:104px"></b><b style="left:252px;top:98px"></b><b style="left:362px;top:470px"></b><b style="left:8px;top:528px"></b><b style="left:176px;top:692px"></b></div>`;
+const pubBadge=pub=>pub?`<span class="pb">${I.people('#1660e8',18)}공개</span>`:`<span class="pb off">${I.lock('#fff',16)}비공개</span>`;
+const metaCard=(lab,t,likeBtn)=>`<div class="umc"><div>${chipPill(lab)}</div>${t?`<div class="t">${esc(t)}</div>`:''}${likeBtn}</div>`;
+S.home=()=>{const fd=st.feed.filter(f=>!st.reported[f.id]);const srt=st.sort==='인기순'?[...fd].sort((a,b)=>(a.rk??99)-(b.rk??99)):[...fd].sort((a,b)=>(a.ago??0)-(b.ago??0));
   const g1=srt.slice(0,4),g2=srt.slice(4);
   return `<div class="uscr" data-scr>
   <div class="uhero" data-t="상단 배너"><img src="${IMG}hero.jpg" alt=""><h1>오늘, 겨울을<br>이렇게 즐겨봐요</h1></div>
   <div class="utops"><button class="tc" data-t="이번 주 찾을 색 카드" data-a="upchip:0"><div class="s">이번 주 찾을 색</div><div style="display:flex;gap:8px;align-items:center;margin-top:12px"><span class="sw"></span><span class="b">주황</span></div></button>
   <button class="tc" data-t="오늘 해 볼 것 카드" data-a="upchip:1" style="padding-top:20px"><div class="s">오늘 해 볼 것</div><div class="b" style="margin-top:1px">따뜻한 차 마시기</div><div class="x">좋아하는 컵에 담아 한 장 남겨요</div></button></div>
-  <div class="usec" style="position:relative"><h2 data-t="'다른 사람들의 겨울' 제목">다른 사람들의 겨울</h2>${fd.length?`<button class="sort ${st.pop==='sort'?'op':''}" data-t="정렬 버튼(${st.sort})" data-a="sortpop">${st.sort}${I.chev}</button>`:''}
+  <div class="usec" style="position:relative"><h2 data-t="'다른 사람들의 겨울' 제목">다른 사람들의 겨울</h2><button class="sort ${st.pop==='sort'?'op':''}" data-t="정렬 버튼(${st.sort})" data-a="sortpop">${st.sort}${I.chev}</button>
   ${st.pop==='sort'?`<div class="upop" style="right:0;top:36px"><div class="h">보기 방식</div>${['인기순','최신순'].map(o=>`<button class="${st.sort===o?'on':''}" data-t="'${o}'" data-a="sort:${o}">${st.sort===o?I.check:'<span style="width:16px"></span>'}${o}</button>`).join('')}</div>`:''}</div>
   ${fd.length?`<div class="ugrid">${g1.map(fcard).join('')}</div>
   <div class="usec" style="margin-top:24px;margin-bottom:12px"><h2 data-t="'에디터의 PICK' 제목">사계단지 에디터의 PICK!</h2><span class="n">${st.pickI+1}/${PICK.length}</span></div>
   <div class="ucar" data-car="pick">${PICK.map((x,i)=>pk(x,i,'pick')).join('')}</div>
   <div class="ugrid" style="margin-top:24px">${g2.map(fcard).join('')}</div>
-  <div class="usec" style="margin-top:24px;margin-bottom:12px"><h2 data-t="'에디터의 특별 추천' 제목">사계단지 에디터의 특별 추천</h2><span class="n">${st.spI+1}/${SPECIAL.length}</span></div>
+  <div class="usec" style="margin-top:24px;margin-bottom:12px"><h2 data-t="'에디터의 PICK'(두 번째) 제목">사계단지 에디터의 PICK!</h2><span class="n">${st.spI+1}/${SPECIAL.length}</span></div>
   <div class="ucar" data-car="sp">${SPECIAL.map((x,i)=>pk(x,i,'sp')).join('')}</div>
   <p class="endtx" data-t="피드 끝 문구">오늘 해 볼 것은 매일, 찾을 색은 월요일마다 바뀌어요</p>`
-  :`<div class="uempty"><b>아직 올라온 사진이 없어요</b><p>오늘 첫 사진을 올리면<br>여기에서 모두가 같이 볼 수 있어요</p><button data-t="첫 사진 올리기" data-a="upchip:">첫 사진 올리기</button></div>`}
+  :`<div class="uempty" data-t="빈 피드 안내"><img class="ill" src="${IMG}ill_empty.png" alt="" style="width:90px"><b>아직 올라온 사진이 없어요</b><p>오늘 첫 사진을 올리면<br>여기에서 모두가 같이 볼 수 있어요</p><button data-t="첫 사진 올리기" data-a="upchip:">첫 사진 올리기</button></div>`}
   <div style="height:calc(130px + var(--sab))"></div></div>`+tabbar('home')};
 S.detail=()=>{const f=st.feed.find(x=>x.id===st.cur);if(!f)return S.home();const n=f.like+(f.liked?1:0);
-  return `<div class="uscr grad" data-scr>${pad}
-  <div class="lh"><button data-t="게시물 뒤로(원 화살표)" data-a="back">${I.lc}</button><div class="nm"><b>${esc(f.by)}</b><span>30분 전</span></div><button class="mo ${st.pop==='rep'?'op':''}" data-t="게시물 더보기(···)" data-a="sheet:report">${I.dotsg}</button></div>
-  <div class="bigph" data-t="게시물 사진" style="background-image:url('${IMG+(f.big||f.img)}')"></div>
-  <div class="umeta"><div class="l">${esc(f.lab)}</div><div class="t">${esc(f.t)}</div>
-  <button class="ulike" data-t="게시물 좋아요(${f.liked?'취소':'누름'})" data-a="like:${f.id}"><span class="hi">${f.liked?I.heart(true,0,16):I.heartf('#8b95a1',16)}</span>${n}</button></div>
+  return `<div class="uscr grad" data-scr>${snow}${pad}
+  <div class="lh"><button data-t="게시물 뒤로(원 화살표)" data-a="back">${I.lc}</button><div class="nm"><b>${esc(f.by)}</b><span>30분 전</span></div><button class="mo sq" data-t="게시물 신고 버튼" data-a="sheet:report">${I.siren}</button></div>
+  <div class="bigph" data-t="게시물 사진" style="background-image:url('${IMG+(f.big||f.img)}')">${pubBadge(true)}</div>
+  ${metaCard(f.lab,f.t,`<button class="ulike" data-t="게시물 좋아요(${f.liked?'취소':'누름'})" data-a="like:${f.id}"><span class="hi">${I.heart(f.liked,'#4e5968',18)}</span>${n}</button>`)}
   <div style="height:calc(140px + var(--sab))"></div></div>
   <div class="ucta"><button class="bp" data-t="나도 해보기" data-a="metoo:${f.id}">나도 해보기</button></div>`};
 const visBtns=u=>`<div class="uvis"><button class="bm ${u.pub?'on':''}" data-t="공개 범위 '공개'" data-a="pub:1">${I.people(u.pub?'#1660e8':'#8b95a1')}공개</button><button class="bm ${!u.pub?'on':''}" data-t="공개 범위 '비공개'" data-a="pub:0">${I.lock(!u.pub?'#1660e8':'#8b95a1')}비공개</button></div>`;
 S.up=()=>{const u=st.up;const ok=u.photo&&u.chip!=null;
   return `<div class="uscr" data-scr>${pad}
   <div class="uh"><button data-t="올리기 닫기(✕)" data-a="back">${I.xc}</button><h3>겨울단지에 저장하기</h3></div>
-  <button class="pbox ${u.photo?'has':''}" data-t="${u.photo?'사진 바꾸기':'사진 고르기'}" data-a="sheet:pick" style="${u.photo?`background-image:url('${IMG+u.photo}')`:''}">${u.photo?'<span class="chg">바꾸기</span>':I.plus+'사진 고르기'}</button>
+  <button class="pbox ${u.photo?'has':''}" data-t="${u.photo?'고른 사진(바꾸기)':'사진 고르기'}" data-a="sheet:pick" style="${u.photo?`background-image:url('${IMG+u.photo}')`:''}">${u.photo?'':I.plus+'사진 고르기'}</button>
   <div class="fl"><div class="lb">어떤 사진인가요?</div><div class="hp">이번 주 찾을 색과 오늘 해 볼 것만 고를 수 있어요</div>
   <div class="chr">${CHIPS.map((c,i)=>`<button class="bm ${u.chip===i?'on':''}" data-t="사진 종류 '${c}'" data-a="chip:${i}">${c}</button>`).join('')}</div></div>
   <div class="fl" style="padding-top:0"><div class="lb">한 줄 남기기 (선택)</div><div class="tf"><input maxlength="40" data-t="한 줄 남기기 입력칸" data-in="text" value="${esc(u.text)}" placeholder="이 순간을 한 줄로 남겨 보세요"></div></div>
@@ -283,39 +348,40 @@ S.up=()=>{const u=st.up;const ok=u.photo&&u.chip!=null;
   <div style="height:calc(150px + var(--sab))"></div></div>
   ${(st.tipUntil||0)>Date.now()?`<div class="utip" data-t="안내 말풍선">지금 계절에 맞춰 단지가 정해져요</div>`:''}
   <div class="ucta"><button class="bp" data-t="저장하기${ok?'':'(비활성)'}" data-a="save" ${ok?'':'disabled'}>저장하기</button></div>`};
-S.done=()=>{const r=st.last;return `<div class="uscr" data-scr style="background:#fff">
-  <div class="udone"><div data-t="완료 그림">${I.saved}</div><h3>겨울 단지에 저장했어요</h3><p>${r.pub?'다른 사람들도 볼 수 있게 올렸어요':'나만 볼 수 있게 저장했어요'}</p></div>
-  ${r.chip===0&&r.firstColor?`<div class="uwf" data-t="찾은 색 카드"><div style="display:flex;gap:12px;align-items:center"><span style="width:28px;height:28px;border-radius:14px;background:#ff7007;flex:none"></span><div><b>주황을 찾았어요</b><p style="margin:0">찾은 색 ${st.colors.length}개 · 내 단지에서 볼 수 있어요</p></div></div></div>`:''}
-  ${st.askAlarm?`<div class="uwf" data-t="알림 제안 카드"><b>내일 점심에 오늘 해 볼 것을 알려드릴까요?</b><p>하루 한 번, 새 추천이 열리면 토스 알림으로 알려드려요. 시간은 내 단지에서 바꿀 수 있어요</p><div class="r"><button data-t="알림 제안 '괜찮아요'" data-a="alarmask:0">괜찮아요</button><button class="p" data-t="알림 제안 '알림 받기'" data-a="alarmask:1">알림 받기</button></div></div>`:''}
+S.done=()=>{const r=st.last;return `<div class="uscr" data-scr style="background:linear-gradient(180deg,#fff,#fafbfd)">
+  <div class="udone"><img class="ill" src="${IMG}ill_done.png" alt="" data-t="완료 그림"><h3>겨울 단지에 저장했어요</h3>
+  <p>${r.chip===0&&r.firstColor?`오늘 <em>주황</em>을 찾았어요<br>이번 겨울에 찾은 색은 ${st.colors.length}개예요!`:(r.pub?'다른 사람들도 볼 수 있게 올렸어요':'나만 볼 수 있게 저장했어요')}</p></div>
   <div style="height:200px"></div></div>
-  <div class="ctaw">${r.pub?`<button class="bp" data-t="다른 사람들 사진 보기" data-a="tohome">다른 사람들 사진 보기</button><button class="bs" data-t="내 단지 보기" data-a="todanji">내 단지 보기</button>`:`<button class="bp" data-t="내 단지 보기" data-a="todanji">내 단지 보기</button><button class="bs" data-t="홈으로" data-a="tohome">홈으로</button>`}</div>`};
-S.danji=()=>{const ms=st.season==='겨울'?st.mine:[];
-  return `<div class="uscr" data-scr>${pad}
-  <div class="dh"><h2 data-t="'내 단지' 제목">내 단지</h2><button class="alb" data-t="알림 버튼(${st.alarmOff?'꺼짐':st.alarm})" data-a="sheet:alarm">알림 · ${st.alarmOff?'꺼짐':st.alarm}</button></div>
-  <div class="seas">${['봄','여름','가을','겨울'].map(s=>`<button class="${st.season===s?'on':''}" data-t="계절 '${s}'" data-a="season:${s}">${s}</button>`).join('')}</div>
-  ${st.season==='겨울'?`<button class="cols" data-t="찾은 색 동그라미" data-a="go:colors">${st.colors.map(c=>`<i style="background:${c[1]}"></i>`).join('')}</button>`:''}
-  ${ms.length?`<div class="dg">${ms.map(m=>`<button class="dc" data-t="내 기록 카드 '${esc(m.t||m.date)}'" data-a="mine:${m.id}" style="background-image:url('${IMG+m.img}')"><span class="bd">${m.pub?I.people('#3182f6'):I.lock('#3182f6')}</span><span class="dt">${esc(m.date)}</span>${m.pub?`<span class="lk">${I.heartf('#fff',14)}${m.like}</span>`:''}</button>`).join('')}</div>`:`<p class="unone" data-t="빈 계절">${esc(st.season)}에 남긴 기록이 아직 없어요</p>`}
-  </div>`+tabbar('danji')};
+  <div class="ctaw">${r.pub?`<button class="bp" data-t="다른 사람들 사진 보기" data-a="tohome">다른 사람들 사진 보기</button><button class="bl" data-t="내 단지 보기" data-a="todanji">내 단지 보기</button>`:`<button class="bp" data-t="내 단지 보기" data-a="todanji">내 단지 보기</button><button class="bl" data-t="홈으로" data-a="tohome">홈으로</button>`}</div>`};
+S.danji=()=>{const ms=st.season==='겨울'?st.mine:[];const nc=st.colors.length;
+  return `<div class="uscr grad" data-scr>${snow}${pad}
+  <div class="dh"><h2 data-t="'내 단지' 제목">내 단지</h2><button class="alb" data-t="알림 버튼(${st.alarmOff?'꺼짐':st.alarm})" data-a="sheet:alarm">${I.bell}알림 · ${st.alarmOff?'꺼짐':st.alarm}</button></div>
+  <div class="seas">${['봄','여름','가을','겨울'].map(s=>`<button class="${st.season===s?'on':''}" data-t="계절 '${s}'" data-a="season:${s}">${s==='겨울'?'겨울 · 지금':s}</button>`).join('')}</div>
+  ${st.season==='겨울'?`<button class="ucol" data-t="찾은 색 카드" data-a="go:colors"><span class="dots">${nc?st.colors.map(c=>`<i style="background:${CDOT[c[1]]}"></i>`).join(''):'<i style="background:#4e5968"></i><i style="background:#b0b8c1"></i>'}</span><b>찾은 색 ${nc}개</b><span class="all">전체 보기 ›</span></button>`:''}
+  ${ms.length?`<div class="dg">${ms.map(m=>`<button class="dc" data-t="내 기록 카드 '${esc(m.t||m.date)}'" data-a="mine:${m.id}" style="background-image:url('${IMG+m.img}')"><span class="bd">${m.pub?'공개':'비공개'}</span><span class="dt">${esc(m.date)}</span><span class="lk">${I.heart(false,'#fff',13)}${m.like}</span></button>`).join('')}</div>`
+  :st.season==='겨울'?`<div class="uempty dj" data-t="빈 단지 안내"><img class="ill" src="${IMG}ill_jar.png" alt="" style="width:190px"><b>아직 올린 사진이 없어요</b><p>나의 겨울 단지에<br>첫 사진을 올려봐요</p><button data-t="첫 사진 올리기" data-a="upchip:">첫 사진 올리기</button></div>`
+  :`<p class="unone" data-t="빈 계절">${esc(st.season)}에 남긴 기록이 아직 없어요</p>`}
+  <div style="height:calc(130px + var(--sab))"></div></div>`+tabbar('danji')};
 S.mine=()=>{const m=st.mine.find(x=>x.id===st.cur);if(!m)return S.danji();
-  return `<div class="uscr grad" data-scr>${pad}
-  <div class="lh"><button data-t="내 기록 뒤로(원 화살표)" data-a="back">${I.lc}</button><div class="nm"><b>${esc(m.full)}</b><span>${m.pub?'공개 중':'나만 보기'}</span></div><button class="mo ${st.pop==='mm'?'op':''}" data-t="내 기록 더보기(···)" data-a="pop:mm">${I.dotsg}</button></div>
-  ${st.pop==='mm'?`<div class="umenu" style="top:calc(104px + var(--sat))"><button data-t="'수정하기'" data-a="edit">수정하기</button><button data-t="'삭제하기'" data-a="sheet:del">삭제하기</button></div>`:''}
-  <div class="bigph" data-t="내 기록 사진" style="background-image:url('${IMG+m.img}')"><span class="pb">${m.pub?I.people('#1660e8'):I.lock('#1660e8')}${m.pub?'공개':'비공개'}</span></div>
-  <div class="umeta"><div class="l">${esc(m.lab)}</div>${m.t?`<div class="t">${esc(m.t)}</div>`:''}${m.pub?`<div class="ulike" data-t="내 기록 좋아요 수">${'<span class="hi">'+I.heartf('#8b95a1',16)+'</span>'}${m.like}</div>`:''}</div>
+  return `<div class="uscr grad" data-scr>${snow}${pad}
+  <div class="lh"><button data-t="내 기록 뒤로(원 화살표)" data-a="back">${I.lc}</button><div class="nm"><b>${ME}</b><span>${m.fresh?'방금 전':'30분 전'}</span></div><button class="mo ${st.pop==='mm'?'op':''}" data-t="내 기록 더보기(···)" data-a="pop:mm">${I.dotsg}</button></div>
+  ${st.pop==='mm'?`<div class="umenu" style="top:calc(98px + var(--sat))"><button data-t="'수정하기'" data-a="edit">수정하기</button><button data-t="'삭제하기'" data-a="sheet:del">삭제하기</button></div>`:''}
+  <div class="bigph" data-t="내 기록 사진" style="background-image:url('${IMG+(m.big||m.img)}')">${pubBadge(m.pub)}</div>
+  ${metaCard(m.lab,m.t,`<div class="ulike" data-t="내 기록 좋아요 수"><span class="hi">${I.heart(false,'#4e5968',18)}</span>${m.like}</div>`)}
   <div style="height:80px"></div></div>`};
 S.edit=()=>{const u=st.up,m=st.mine.find(x=>x.id===st.cur);
   return `<div class="uscr" data-scr>${pad}
   <div class="uh"><button data-t="수정 닫기(✕)" data-a="back">${I.xc}</button><h3>기록 수정하기</h3></div>
-  <button class="pbox has" data-t="수정 사진 바꾸기" data-a="sheet:pick" style="background-image:url('${IMG+u.photo}')"><span class="chg">바꾸기</span></button>
+  <div class="pbox has" data-t="수정 화면 사진" style="background-image:url('${IMG+(m.big||u.photo)}')"></div>
   <div class="fl"><div class="lb">어떤 사진인가요?</div><div class="hp">업로드 한 뒤에는 수정할 수 없어요</div><div class="chr"><span class="bm fix" data-t="사진 종류(고정)">${esc(m.lab==='주황'?'주황찾기':m.lab)}</span></div></div>
   <div class="fl" style="padding-top:0"><div class="lb">한 줄 남기기 (선택)</div><div class="tf"><input maxlength="40" data-t="수정 한 줄 입력칸" data-in="text" value="${esc(u.text)}" placeholder="이 순간을 한 줄로 남겨 보세요"></div></div>
-  <div class="fl" style="padding-top:0"><div class="lb">누가 볼 수 있나요?</div><div class="hp">${u.pub!==m.pub?(u.pub?'저장하면 피드에 올라가요':'저장하면 피드에서 내려가요'):(u.pub?'지금 다른 사람들에게 보이고 있어요':'지금 나만 볼 수 있어요')}</div>${visBtns(u)}</div>
+  <div class="fl" style="padding-top:0"><div class="lb">누가 볼 수 있나요?</div><div class="hp">언제든 내 단지에서 공개 범위를 바꿀 수 있어요</div>${visBtns(u)}</div>
   <div style="height:calc(150px + var(--sab))"></div></div>
   <div class="ucta"><button class="bp" data-t="수정 완료" data-a="editsave">수정 완료</button></div>`};
-S.colors=()=>`<div class="uscr grad" data-scr>${pad}
-  <div class="lh"><button data-t="찾은 색 뒤로(원 화살표)" data-a="back">${I.lc}</button><div class="nm"><b>찾은 색</b></div></div>
-  <p class="wfnote">이번 주 찾을 색으로 사진을 올리면 한 칸씩 모여요 · ${st.colors.length}개</p>
-  <div class="cg">${st.colors.map(c=>`<div data-t="찾은 색 '${c[0]}'"><i style="background:${c[1]}"></i>${c[0]}<small>${c[2]}</small></div>`).join('')}<div data-t="'다음 주 색' 빈칸"><i class="nx"></i>다음 주 색<small>&nbsp;</small></div></div></div>`;
+S.colors=()=>`<div class="uscr" data-scr style="background:#fff">${pad}
+  <div class="lh"><button data-t="찾은 색 뒤로(원 화살표)" data-a="back">${I.lc}</button><div class="nm"><b style="font-size:20px">찾은 색</b></div></div>
+  <p class="wfnote">이번 주 찾을 색으로 사진을 올리면 한 칸씩 모여요</p>
+  <div class="cg">${st.colors.map(c=>`<div data-t="찾은 색 '${c[0]}'"><i style="background:${CW[c[1]]}"></i><b>${c[0]}</b><small>${c[2]}</small></div>`).join('')}<div class="nx" data-t="'다음 주 색' 빈칸"><i class="nx">?</i><b>다음 주 색</b><small>12월 첫째 주</small></div></div></div>`;
 
 /* ---------- sheets ---------- */
 const sheet=(name,h,sb,body,ba)=>`<div class="udim" data-t="${name} 바깥(어두운 곳)" data-a="dim"><div class="usheet" data-sheet="${name}"><div class="hd"></div><h4>${h}</h4>${sb?`<p class="sb">${sb}</p>`:''}${body||''}${ba}</div></div>`;
@@ -330,13 +396,14 @@ const SH={
  exit:()=>sheet('나가기 확인','작성한 내용이 사라져요','지금 나가면 고른 사진과 적은 글이 사라져요','',two('나가기 확인','나가기','leave','계속 쓰기','close')),
  exitEdit:()=>sheet('나가기 확인','고친 내용이 사라져요','지금 나가면 고친 내용이 저장되지 않아요','',two('나가기 확인','나가기','leave','계속 고치기','close')),
  del:()=>sheet('삭제 확인','이 기록을 삭제할까요?','사진과 받은 좋아요가 함께 사라지고, 되돌릴 수 없어요','',two('삭제 확인','닫기','close','삭제하기','del')),
+ ask:()=>`<div class="udim" data-t="알림 제안 바깥(어두운 곳)" data-a="dim"><div class="usheet" data-sheet="알림 제안"><div class="hd"></div><h4 class="c">내일 점심,<br>새 추천을 알려드릴까요?</h4><img class="unf" src="${IMG}notif.png" alt="" data-t="알림 미리보기 그림"><p class="sb c">하루에 한 번,<br>새 추천이 열리면 토스 알림으로 알려드려요<br>시간은 내 단지에서 바꿀 수 있어요</p><div class="ba" style="padding-top:20px"><button class="bs" data-t="'괜찮아요'" data-a="alarmask:0">괜찮아요</button><button class="bp" data-t="'알림 받기'" data-a="alarmask:1">알림 받기</button></div></div></div>`,
  alarm:()=>sheet('알림 시간','언제 알려드릴까요?','하루 한 번, 오늘 해 볼 것이 열리면<br>토스 알림으로 알려드려요',
    `<div class="uopt">${[['sunrise','아침 8시'],['sun','낮 12시'],['moon','저녁 6시']].map(([i,t])=>{const on=!st.alarmOff&&st.alarmSel===t;return `<button class="${on?'on':''}" data-t="'${t}'" data-a="alarmsel:${t}">${I[i](on)}${t}</button>`}).join('')}</div><button class="nof" data-t="'알림 받지 않기'" data-a="alarmoff">${I.cbox(st.alarmOff)}알림 받지 않기</button>`,
    `<div class="ba"><button class="bp" data-t="'${st.alarmOff?'알림 끄기':'이 시간에 알림 받기'}'" data-a="alarmsave">${st.alarmOff?'알림 끄기':'이 시간에 알림 받기'}</button></div>`)
 };
 
 /* ---------- draw ---------- */
-const SHN={src:'원문 이동 확인',report:'신고 확인',pick:'사진 추가',perm:'카메라 권한',exit:'나가기 확인',exitEdit:'나가기 확인',del:'삭제 확인',alarm:'알림 시간'};
+const SHN={src:'원문 이동 확인',report:'신고 확인',pick:'사진 추가',perm:'카메라 권한',exit:'나가기 확인',exitEdit:'나가기 확인',del:'삭제 확인',alarm:'알림 시간',ask:'알림 제안'};
 function draw(resetScroll){
   if(!root)return;
   const old=root.querySelector('[data-scr]'),y=old&&!resetScroll?old.scrollTop:0;
@@ -372,20 +439,20 @@ function act(a){
   case 'sheet':st.pop=null;st.sheet=v;draw();return;
   case 'close':case 'dim':st.sheet=null;draw();return;
   case 'report':st.reported[st.cur]=1;st.sheet=null;st.stack=['home'];draw(true);toast('신고했어요. 이 사진은 피드에서 사라졌어요');return;
-  case 'album':case 'shoot':{st.sheet=null;const ph=samplePhoto();
+  case 'album':case 'shoot':{st.sheet=null;const ph=samplePhoto(k);
     if(st.pickFrom==='tab'&&top()!=='up'&&top()!=='edit'){st.pickFrom=null;startUp(null,ph);return}
     if(u){u.photo=ph;u.dirty=true}draw();return}
   case 'chip':u.chip=u.chip===Number(v)?null:Number(v);u.dirty=true;draw();return;
   case 'pub':u.pub=v==='1';u.dirty=true;draw();return;
   case 'leave':st.sheet=null;st.stack.pop();st.up=null;draw(true);return;
   case 'save':{if(!(u.photo&&u.chip!=null))return;const lab=['주황','따뜻한 차','그 밖의 겨울'][u.chip];
-    const first=u.chip===0&&!st.colors.some(c=>c[2]==='11월 넷째 주');if(first)st.colors=[['주황','#ff7007','11월 넷째 주'],...st.colors];
-    const mid='m'+Date.now();st.mine=[{id:mid,img:u.photo,date:'Nov, 27',full:'2026.11.27 · 겨울',lab,t:u.text,pub:u.pub,like:0},...st.mine];
-    if(u.pub)st.feed=[{id:'me'+Date.now(),t:u.text||lab,by:'나',img:u.photo,lab,like:0,liked:false,mineId:mid},...st.feed];
+    const first=u.chip===0&&!st.colors.some(c=>c[2]==='11월 넷째 주');if(first)st.colors=[...st.colors,['주황','o','11월 넷째 주']];
+    const mid='m'+Date.now();st.mine=[{id:mid,img:u.photo,big:BIG[u.photo],date:'11.28',fresh:1,lab,t:u.text,pub:u.pub,like:0},...st.mine];
+    if(u.pub)st.feed=[{id:'me'+Date.now(),t:u.text||lab,by:ME,img:u.photo,big:BIG[u.photo],lab,like:0,liked:false,mineId:mid},...st.feed];
     st.last={pub:u.pub,chip:u.chip,firstColor:first};st.up=null;st.stack=['done'];draw(true);return}
-  case 'alarmask':st.askAlarm=false;draw();if(v==='1'){st.alarm='낮 12시';st.alarmOff=false;toast('낮 12시에 알려드릴게요')}return;
-  case 'tohome':st.sort='최신순';reset('home');return;
-  case 'todanji':st.season='겨울';reset('danji');return;
+  case 'alarmask':st.askAlarm=false;st.sheet=null;draw();if(v==='1'){st.alarm='낮 12시';st.alarmOff=false;toast('낮 12시에 알려드릴게요')}return;
+  case 'tohome':st.sort='최신순';reset('home');if(st.askAlarm){st.sheet='ask';draw()}return;
+  case 'todanji':st.season='겨울';reset('danji');if(st.askAlarm){st.sheet='ask';draw()}return;
   case 'season':st.season=v;draw();return;
   case 'mine':st.cur=v;go('mine');return;
   case 'edit':{const m=st.mine.find(x=>x.id===st.cur);st.up={photo:m.img,text:m.t||'',pub:m.pub,dirty:false};st.pop=null;go('edit');return}
